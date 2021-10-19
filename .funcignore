@@ -1,0 +1,16 @@
+node_modules/azure-functions-core-tools
+.git/
+.history/
+.vscode/
+*.js.map
+*.ts
+.git*
+local.settings.json
+tsconfig.json
+.editorConfig
+.nvmrc
+README.md
+*.code-workspace
+scratch.js
+.devcontainer
+sample-data/
