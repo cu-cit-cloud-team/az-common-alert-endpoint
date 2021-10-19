@@ -18,16 +18,28 @@ module.exports = async (context, req) => {
       // - "azureMonitorCommonAlertSchema"
       // - "Microsoft.Insights/activityLogs"
       const { schemaId } = req.body;
-      const { monitoringService } = req.body.data.essentials;
       let template;
-      if (monitoringService && monitoringService === 'ServiceHealth') {
-        console.log('SERVICE HEALTH ALERT');
-        template = healthAlertCard(req.body.data);
+      if (req.body.data && req.body.data.essentials) {
+        const { monitoringService } = req.body.data.essentials;
+        if (
+          schemaId === 'azureMonitorCommonAlertSchema' &&
+          monitoringService &&
+          monitoringService === 'ServiceHealth'
+        ) {
+          console.log('SERVICE HEALTH ALERT');
+          template = healthAlertCard(req.body.data);
+        }
+        if (
+          !template &&
+          schemaId === 'Microsoft.Insights/activityLogs' &&
+          monitoringService &&
+          monitoringService === 'Application Insights'
+        ) {
+          console.log('ACTIVITY LOG MONITOR ALERT');
+          // template = logsAlertCard(req.body);
+        }
       }
-      if (!template && schemaId === 'Microsoft.Insights/activityLogs') {
-        console.log('ACTIVITY LOG MONITOR ALERT');
-        // template = logsAlertCard(req.body);
-      }
+
       if (!template) {
         const color = getHexForColorString('warning');
         const title = 'Azure Monitoring Alert (unsupported schema)';
