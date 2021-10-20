@@ -41,9 +41,9 @@ module.exports = async (context, req) => {
       }
 
       if (!template) {
-        const color = getHexForColorString('warning');
-        const title = 'Azure Monitoring Alert (unsupported schema)';
-        const text = `\`\`\`${JSON.stringify(req.body)}\`\`\``;
+        const color = 'warning';
+        const title = 'Azure Monitoring Alert (unsupported payload)';
+        const text = JSON.stringify(req.body);
         template = unknownAlertCard({ title, color, text });
       }
 
