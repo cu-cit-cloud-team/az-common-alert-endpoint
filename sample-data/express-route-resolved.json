@@ -1,0 +1,47 @@
+{
+  "schemaId": "azureMonitorCommonAlertSchema",
+  "data": {
+    "essentials": {
+      "alertId": "/subscriptions/30d34e13-de0b-4a7c-9764-ddafc94199b1/providers/Microsoft.AlertsManagement/alerts/91e53143-9914-472c-932c-a21db54972f9",
+      "alertRule": "ER BGP availability less than 100",
+      "severity": "Sev3",
+      "signalType": "Metric",
+      "monitorCondition": "Resolved",
+      "monitoringService": "Platform",
+      "alertTargetIDs": [
+        "/subscriptions/30d34e13-de0b-4a7c-9764-ddafc94199b1/resourcegroups/expressroute-1-rg/providers/microsoft.network/expressroutecircuits/expressroute-1"
+      ],
+      "configurationItems": ["expressroute-1"],
+      "originAlertId": "30d34e13-de0b-4a7c-9764-ddafc94199b1_expressroute-1-rg_microsoft.insights_metricAlerts_ER BGP availability less than 100_-138627915",
+      "firedDateTime": "2021-10-14T06:07:21.0374677Z",
+      "resolvedDateTime": "2021-10-14T06:16:21.7187282Z",
+      "description": "ExpressRoute BGP availability less than 100%",
+      "essentialsVersion": "1.0",
+      "alertContextVersion": "1.0"
+    },
+    "alertContext": {
+      "properties": null,
+      "conditionType": "SingleResourceMultipleMetricCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "metricName": "BgpAvailability",
+            "metricNamespace": "Microsoft.Network/expressRouteCircuits",
+            "operator": "LessThan",
+            "threshold": "100",
+            "timeAggregation": "Average",
+            "dimensions": [
+              { "name": "PeeringType", "value": "Private" },
+              { "name": "Peer", "value": "Primary-IPv4" }
+            ],
+            "metricValue": 100,
+            "webTestName": null
+          }
+        ],
+        "windowStartTime": "2021-10-14T06:08:13.342Z",
+        "windowEndTime": "2021-10-14T06:13:13.342Z"
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schemaId": "azureMonitorCommonAlertSchema",
+  "data": {
+    "essentials": {
+      "alertId": "/subscriptions/30d34e13-de0b-4a7c-9764-ddafc94199b1/providers/Microsoft.AlertsManagement/alerts/02a7e47c47d849a4a56fd3eaf15593fd13d2075db29c7ecf47d897eb492b4da6",
+      "alertRule": "Monitor all the things",
+      "severity": "Sev4",
+      "signalType": "Activity Log",
+      "monitorCondition": "Fired",
+      "monitoringService": "ServiceHealth",
+      "alertTargetIDs": ["/subscriptions/30d34e13-de0b-4a7c-9764-ddafc94199b1"],
+      "originAlertId": "653c1972-8d98-4995-98c5-fdb90b0be81c",
+      "firedDateTime": "2021-10-12T00:32:38.1239171",
+      "description": "Test monitor for everything",
+      "essentialsVersion": "1.0",
+      "alertContextVersion": "1.0"
+    },
+    "alertContext": {
+      "authorization": null,
+      "channels": 1,
+      "claims": null,
+      "caller": null,
+      "correlationId": "42a0dc0d-bcbe-48c4-b438-700cf6876417",
+      "eventSource": 2,
+      "eventTimestamp": "2021-10-12T00:32:18.6121962+00:00",
+      "httpRequest": null,
+      "eventDataId": "653c1972-8d98-4995-98c5-fdb90b0be81c",
+      "level": 3,
+      "operationName": "Microsoft.ServiceHealth/incident/action",
+      "operationId": "42a0dc0d-bcbe-48c4-b438-700cf6876417",
+      "properties": {
+        "title": "RCA - Azure Storage - Unable to see Firewall / Private Endpoints blades",
+        "service": "Storage",
+        "region": "East US",
+        "communication": "<p><strong>Summary of Impact: </strong>Between 2021-09-27 12:36 UTC and 2021-09-27 17:58 UTC, customers using Azure Portal in multiple regions may have experienced failures while creating storage accounts or viewing and configuring Storage Account properties. The incident only impacted operations performed through Azure Portal, and other methods such as PowerShell, CLI, REST, etc, continued to operate normally.</p>\n<p><strong>Root Cause: </strong>This incident was caused by a regional configuration change deployed with a misconfigured entity. We have built-in validation that should detect such configuration problems, but it missed handling the case with the impacted entity. The incorrect entity caused the Azure Portal to fail to display some of the UI components related to Storage Account operation workflows. The configuration deployment process followed our Safe Deployment Practices (SDP), however, the failure went undetected until multiple regions had been updated due to an incorrect severity assigned to the associated failures.</p>\n<p><strong>Mitigation: </strong>Upon detection we stopped the configuration deployment and rolled back the changes in the affected regions thus restoring the portal experience to its previous state</p>\n<p><strong><u>Next Steps: </u></strong>We apologize for the inconvenience this issue has caused. We are continuously working to improve our system to prevent such issues from recurring. The actions we are taking include:</p>\n<ul><li>Portal change to handle the misconfigured entity and prevent impact to overall Storage Account operation workflows is now fixed.</li><li>Address gap in the built-in configuration validation to handle detection of the misconfigured entity.</li><li>Fix severity for this category of failures in the deployment process to ensure deployments will be halted immediately when encountered.</li></ul>\n<p><strong>Provide Feedback:</strong>&nbsp;Please help us improve the Azure customer communications experience by taking our survey:&nbsp;<a href=\"https://aka.ms/AzurePIRSurvey\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: var(--primary); background-color: transparent\">https://aka.ms/AzurePIRSurvey</a></p>",
+        "incidentType": "Incident",
+        "trackingId": "AB1C-2DE",
+        "impactStartTime": "2021-09-27T12:08:18.983Z",
+        "impactMitigationTime": "2021-09-27T17:58:16Z",
+        "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"East US\"}],\"ServiceName\":\"Storage\"}]",
+        "impactedServicesTableRows": "<tr>\r\n<td align='center' style='padding: 5px 10px; border-right:1px solid black; border-bottom:1px solid black'>Storage</td>\r\n<td align='center' style='padding: 5px 10px; border-bottom:1px solid black'>East US<br></td>\r\n</tr>\r\n",
+        "defaultLanguageTitle": "RCA - Azure Storage - Unable to see Firewall / Private Endpoints blades",
+        "defaultLanguageContent": "<p><strong>Summary of Impact: </strong>Between 2021-09-27 12:36 UTC and 2021-09-27 17:58 UTC, customers using Azure Portal in multiple regions may have experienced failures while creating storage accounts or viewing and configuring Storage Account properties. The incident only impacted operations performed through Azure Portal, and other methods such as PowerShell, CLI, REST, etc, continued to operate normally.</p>\n<p><strong>Root Cause: </strong>This incident was caused by a regional configuration change deployed with a misconfigured entity. We have built-in validation that should detect such configuration problems, but it missed handling the case with the impacted entity. The incorrect entity caused the Azure Portal to fail to display some of the UI components related to Storage Account operation workflows. The configuration deployment process followed our Safe Deployment Practices (SDP), however, the failure went undetected until multiple regions had been updated due to an incorrect severity assigned to the associated failures.</p>\n<p><strong>Mitigation: </strong>Upon detection we stopped the configuration deployment and rolled back the changes in the affected regions thus restoring the portal experience to its previous state</p>\n<p><strong><u>Next Steps: </u></strong>We apologize for the inconvenience this issue has caused. We are continuously working to improve our system to prevent such issues from recurring. The actions we are taking include:</p>\n<ul><li>Portal change to handle the misconfigured entity and prevent impact to overall Storage Account operation workflows is now fixed.</li><li>Address gap in the built-in configuration validation to handle detection of the misconfigured entity.</li><li>Fix severity for this category of failures in the deployment process to ensure deployments will be halted immediately when encountered.</li></ul>\n<p><strong>Provide Feedback:</strong>&nbsp;Please help us improve the Azure customer communications experience by taking our survey:&nbsp;<a href=\"https://aka.ms/AzurePIRSurvey\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: var(--primary); background-color: transparent\">https://aka.ms/AzurePIRSurvey</a></p>",
+        "stage": "RCA",
+        "communicationId": "99999999999999",
+        "isHIR": "false",
+        "IsSynthetic": "False",
+        "impactType": "ServiceRegionScaleUnit",
+        "version": "0.1.1"
+      },
+      "status": "Resolved",
+      "subStatus": null,
+      "submissionTimestamp": "2021-10-12T00:32:38.1239171+00:00",
+      "ResourceType": null
+    }
+  }
+}
