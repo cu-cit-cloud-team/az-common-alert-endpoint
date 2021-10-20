@@ -1,54 +1,47 @@
 const axios = require('axios').default;
 
-const { getHexForColorString } = require('../lib/helpers');
-// const {
-//   messageCard: logsAlertCard,
-// } = require('../lib/cards/activityLogsAlert');
-const {
-  messageCard: healthAlertCard,
-} = require('../lib/cards/serviceHealthAlert');
-const { messageCard: unknownAlertCard } = require('../lib/cards/simple');
-
 const { MS_TEAMS_WEBHOOK_URL } = process.env;
 
 module.exports = async (context, req) => {
   try {
     if (req.body) {
-      // supported schemas:
-      // - "azureMonitorCommonAlertSchema"
-      // - "Microsoft.Insights/activityLogs"
       const { schemaId } = req.body;
-      let template;
-      if (req.body.data && req.body.data.essentials) {
+      let adaptiveCard;
+      // supported schema: azureMonitorCommonAlertSchema
+      if (
+        schemaId === 'azureMonitorCommonAlertSchema' &&
+        req.body.data &&
+        req.body.data.essentials
+      ) {
         const { monitoringService } = req.body.data.essentials;
-        if (
-          schemaId === 'azureMonitorCommonAlertSchema' &&
-          monitoringService &&
-          monitoringService === 'ServiceHealth'
-        ) {
-          console.log('SERVICE HEALTH ALERT');
-          template = healthAlertCard(req.body.data);
-        }
-        if (
-          !template &&
-          schemaId === 'Microsoft.Insights/activityLogs' &&
-          monitoringService &&
-          monitoringService === 'Application Insights'
-        ) {
-          console.log('ACTIVITY LOG MONITOR ALERT');
-          // template = logsAlertCard(req.body);
+        if (monitoringService) {
+          if (monitoringService === 'ServiceHealth') {
+            // console.log('SERVICE HEALTH ALERT');
+            const { messageCard } = require('../lib/cards/serviceHealthAlert');
+            adaptiveCard = messageCard(req.body.data);
+          }
+          if (monitoringService === 'Application Insights') {
+            // console.log('ACTIVITY LOG MONITOR ALERT');
+            // const { messageCard } = require('../lib/cards/activityLogsAlert');
+            // adaptiveCard = messageCard(req.body);
+          }
+          if (monitoringService === 'Platform') {
+            // console.log('PLATFORM MONITOR ALERT');
+            // const { messageCard } = require('../lib/cards/expressRouteAlert');
+            // adaptiveCard = messageCard(req.body);
+          }
         }
       }
-
-      if (!template) {
+      if (!adaptiveCard) {
+        const { messageCard } = require('../lib/cards/simple');
         const color = 'warning';
         const title = 'Azure Monitoring Alert (unsupported payload)';
         const text = JSON.stringify(req.body);
-        template = unknownAlertCard({ title, color, text });
+        adaptiveCard = messageCard({ title, color, text });
       }
 
       await axios
-        .post(MS_TEAMS_WEBHOOK_URL, template)
+        .post(MS_TEAMS_WEBHOOK_URL, adaptiveCard)
         .then((response) => {
           context.res = {
             status: 200,
@@ -57,8 +50,9 @@ module.exports = async (context, req) => {
           context.done();
         })
         .catch((error) => {
+          // log error for dev and/or debugging purposes
           context.log.error('AXIOS ERROR:\n', error);
-          // bubble error up
+          // bubble error up so it throws 500 and outputs content
           throw error;
         });
     } else {
