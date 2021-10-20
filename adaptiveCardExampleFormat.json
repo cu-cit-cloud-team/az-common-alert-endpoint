@@ -1,0 +1,122 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.3",
+  "body": [
+    {
+      "type": "Container",
+      "style": "accent",
+      "bleed": true,
+      "spacing": "None",
+      "items": [
+        {
+          "type": "TextBlock",
+          "size": "medium",
+          "weight": "bolder",
+          "spacing": "small",
+          "text": "Azure Service Health Alert"
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "RCA - Azure Storage - Unable to see Firewall / Private Endpoints blades",
+      "size": "Large",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Subscription ID",
+          "value": "d7e08082-8d2d-412d-b07f-b9989684e312"
+        },
+        {
+          "title": "Alert Timestamp",
+          "value": "Tue, 12 Oct 2021 12:32:38 -04:00"
+        },
+        {
+          "title": "Affected Service",
+          "value": "Storage"
+        },
+        {
+          "title": "Affected Region",
+          "value": "East US"
+        },
+        {
+          "title": "Alert State",
+          "value": "RCA"
+        }
+      ],
+      "height": "stretch"
+    },
+    {
+      "type": "ActionSet",
+      "actions": [
+        {
+          "type": "Action.ToggleVisibility",
+          "title": "Show/Hide Details",
+          "style": "default",
+          "targetElements": [
+            {
+              "elementId": "detailsFactSet"
+            }
+          ]
+        },
+        {
+          "type": "Action.OpenUrl",
+          "title": "Service Issues Page (Azure Portal)",
+          "url": "https://portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues",
+          "style": "default"
+        }
+      ]
+    },
+    {
+      "type": "FactSet",
+      "isVisible": false,
+      "id": "detailsFactSet",
+      "facts": [
+        {
+          "title": "Details",
+          "value": "Summary of Impact: Between 2021-09-27 12:36 UTC and 2021-09-27 17:58 UTC, customers using Azure Portal in multiple regions may have experienced failures while creating storage accounts or viewing and configuring Storage Account properties. The incident only impacted operations performed through Azure Portal, and other methods such as PowerShell, CLI, REST, etc, continued to operate normally.\n\nRoot Cause: This incident was caused by a regional configuration change deployed with a misconfigured entity. We have built-in validation that should detect such configuration problems, but it missed handling the case with the impacted entity. The incorrect entity caused the Azure Portal to fail to display some of the UI components related to Storage Account operation workflows. The configuration deployment process followed our Safe Deployment Practices (SDP), however, the failure went undetected until multiple regions had been updated due to an incorrect severity assigned to the associated failures.\n\nMitigation: Upon detection we stopped the configuration deployment and rolled back the changes in the affected regions thus restoring the portal experience to its previous state\n\nNext Steps: We apologize for the inconvenience this issue has caused. We are continuously working to improve our system to prevent such issues from recurring. The actions we are taking include:\n\nPortal change to handle the misconfigured entity and prevent impact to overall Storage Account operation workflows is now fixed.Address gap in the built-in configuration validation to handle detection of the misconfigured entity.Fix severity for this category of failures in the deployment process to ensure deployments will be halted immediately when encountered.\n\nProvide Feedback: Please help us improve the Azure customer communications experience by taking our survey: https://aka.ms/AzurePIRSurvey"
+        },
+        {
+          "title": "incidentType",
+          "value": "Incident"
+        },
+        {
+          "title": "trackingId",
+          "value": "AB1C-2DE"
+        },
+        {
+          "title": "impactStartTime",
+          "value": "09/27/2021 12:08:18"
+        },
+        {
+          "title": "impactMitigationTime",
+          "value": "09/27/2021 17:58:16"
+        },
+        {
+          "title": "communicationId",
+          "value": "99999999999999"
+        },
+        {
+          "title": "isHIR",
+          "value": "false"
+        },
+        {
+          "title": "IsSynthetic",
+          "value": "False"
+        },
+        {
+          "title": "impactType",
+          "value": "ServiceRegionScaleUnit"
+        },
+        {
+          "title": "version",
+          "value": "0.1.1"
+        }
+      ]
+    }
+  ]
+}
