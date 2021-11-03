@@ -1,0 +1,26 @@
+name: prepare
+
+on: [workflow_call]
+
+env:
+  NODE_VERSION: 14.x # set this to the node version to use (supports 10.x, 12.x, 14.x)
+
+jobs:
+  prepare:
+    runs-on: windows-latest
+    steps:
+    - name: 👷 Checkout repo
+      uses: actions/checkout@v2
+
+    - name: 🏗️ Setup Node.js ${{ env.NODE_VERSION }} environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: ⬆️ Update npm and install dependencies
+      shell: bash
+      run: npm i -g npm && npm install
+
+    - name: 🗑️ Remove Azure Core Function Tools (disk space issues)
+      shell: bash
+      run: rm -rf node_modules/azure-functions-core-tools

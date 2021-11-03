@@ -20,7 +20,7 @@ env:
   PROJECT_NAME: AZ Alert Endpoint
 
 jobs:
-  build-and-deploy:
+  notify-start:
     runs-on: windows-latest
     steps:
       - name: 📤 Notify Teams
@@ -32,22 +32,12 @@ jobs:
           title: ${{ env.PROJECT_NAME }} Deployment Started
           color: info
 
-      - name: 👷 Checkout repo
-        uses: actions/checkout@v2
+  prepare:
+    - uses: CU-CommunityApps/ct-az-common-alert-endpoint/.github/workflows/prepare.yml@main
 
-      - name: 🏗️ Setup Node.js ${{ env.NODE_VERSION }} environment
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: ⬆️ Update npm and install dependencies
-        shell: bash
-        run: npm i -g npm && npm install
-
-      - name: 🗑️ Remove Azure Core Function Tools (disk space issues)
-        shell: bash
-        run: rm -rf node_modules/azure-functions-core-tools
-
+  deploy:
+    needs: prepare
+    steps:
       - name: 🛫 Deploy function app to Azure
         uses: Azure/functions-action@v1
         with:
@@ -55,9 +45,9 @@ jobs:
           package: ./
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
           respect-funcignore: true
-          # scm-do-build-during-deployment: true
-          # enable-oryx-build: true
 
+  notify-deploy-status:
+    steps:
       - name: ⚠️ Cancelled Notification
         if: ${{ cancelled() }}
         uses: mikesprague/teams-incoming-webhook-action@v1
