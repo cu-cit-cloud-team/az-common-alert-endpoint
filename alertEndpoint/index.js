@@ -1,6 +1,10 @@
 const axios = require('axios').default;
 
+const { isExpressRouteAlert, initPeersStore } = require('../lib/helpers');
+
 const { MS_TEAMS_WEBHOOK_URL } = process.env;
+
+initPeersStore();
 
 module.exports = async (context, req) => {
   try {
@@ -13,22 +17,24 @@ module.exports = async (context, req) => {
         req.body.data &&
         req.body.data.essentials
       ) {
-        const { monitoringService } = req.body.data.essentials;
+        const { monitoringService, alertTargetIDs } = req.body.data.essentials;
         if (monitoringService) {
           if (monitoringService === 'ServiceHealth') {
-            // console.log('SERVICE HEALTH ALERT');
+            // context.log.info('SERVICE HEALTH ALERT');
             const { messageCard } = require('../lib/cards/serviceHealthAlert');
             adaptiveCard = messageCard(req.body.data);
           }
           if (monitoringService === 'Application Insights') {
-            // console.log('ACTIVITY LOG MONITOR ALERT');
+            // context.log.info('ACTIVITY LOG MONITOR ALERT');
             // const { messageCard } = require('../lib/cards/activityLogsAlert');
             // adaptiveCard = messageCard(req.body);
           }
           if (monitoringService === 'Platform') {
-            // console.log('PLATFORM MONITOR ALERT');
-            // const { messageCard } = require('../lib/cards/expressRouteAlert');
-            // adaptiveCard = messageCard(req.body);
+            // context.log.info('PLATFORM MONITOR ALERT');
+            if (isExpressRouteAlert(alertTargetIDs)) {
+              const { messageCard } = require('../lib/cards/expressRouteAlert');
+              adaptiveCard = messageCard(req.body.data);
+            }
           }
         }
       }
