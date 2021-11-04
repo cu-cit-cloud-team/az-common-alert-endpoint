@@ -12,8 +12,8 @@
         "/subscriptions/30d34e13-de0b-4a7c-9764-ddafc94199b1/resourcegroups/expressroute-1-rg/providers/microsoft.network/expressroutecircuits/expressroute-1"
       ],
       "configurationItems": ["expressroute-1"],
-      "originAlertId": "30d34e13-de0b-4a7c-9764-expressroute-1-rg_microsoft.insights_metricAlerts_ER BGP availability less than 100_-138627915",
-      "firedDateTime": "2021-10-14T06:07:21.0374677Z",
+      "originAlertId": "30d34e13-de0b-4a7c-9764-ddafc94199b1_expressroute-1-rg_microsoft.insights_metricAlerts_ER BGP availability less than 100_-138627915",
+      "firedDateTime": "2021-11-03T06:40:16.9703852Z",
       "description": "ExpressRoute BGP availability less than 100%",
       "essentialsVersion": "1.0",
       "alertContextVersion": "1.0"
@@ -31,15 +31,21 @@
             "threshold": "100",
             "timeAggregation": "Average",
             "dimensions": [
-              { "name": "PeeringType", "value": "Private" },
-              { "name": "Peer", "value": "Primary-IPv4" }
+              {
+                "name": "PeeringType",
+                "value": "Private"
+              },
+              {
+                "name": "Peer",
+                "value": "Primary-IPv4"
+              }
             ],
             "metricValue": 80,
             "webTestName": null
           }
         ],
-        "windowStartTime": "2021-10-14T05:59:13.062Z",
-        "windowEndTime": "2021-10-14T06:04:13.062Z"
+        "windowStartTime": "2021-11-03T06:32:07.199Z",
+        "windowEndTime": "2021-11-03T06:37:07.199Z"
       }
     }
   }

@@ -6,15 +6,14 @@
       "alertRule": "ER BGP availability less than 100",
       "severity": "Sev3",
       "signalType": "Metric",
-      "monitorCondition": "Resolved",
+      "monitorCondition": "Fired",
       "monitoringService": "Platform",
       "alertTargetIDs": [
         "/subscriptions/30d34e13-de0b-4a7c-9764-ddafc94199b1/resourcegroups/expressroute-1-rg/providers/microsoft.network/expressroutecircuits/expressroute-1"
       ],
       "configurationItems": ["expressroute-1"],
-      "originAlertId": "30d34e13-de0b-4a7c-9764-ddafc94199b1_expressroute-1-rg_microsoft.insights_metricAlerts_ER BGP availability less than 100_-138627915",
-      "firedDateTime": "2021-10-14T06:07:21.0374677Z",
-      "resolvedDateTime": "2021-10-14T06:16:21.7187282Z",
+      "originAlertId": "30d34e13-de0b-4a7c-9764-ddafc94199b1_expressroute-1-rg_microsoft.insights_metricAlerts_ER BGP availability less than 100_-711320189",
+      "firedDateTime": "2021-11-03T08:15:18.6892387Z",
       "description": "ExpressRoute BGP availability less than 100%",
       "essentialsVersion": "1.0",
       "alertContextVersion": "1.0"
@@ -33,14 +32,14 @@
             "timeAggregation": "Average",
             "dimensions": [
               { "name": "PeeringType", "value": "Private" },
-              { "name": "Peer", "value": "Primary-IPv4" }
+              { "name": "Peer", "value": "Secondary-IPv4" }
             ],
-            "metricValue": 100,
+            "metricValue": 80,
             "webTestName": null
           }
         ],
-        "windowStartTime": "2021-10-14T06:08:13.342Z",
-        "windowEndTime": "2021-10-14T06:13:13.342Z"
+        "windowStartTime": "2021-11-03T08:07:11.808Z",
+        "windowEndTime": "2021-11-03T08:12:11.808Z"
       }
     }
   }
