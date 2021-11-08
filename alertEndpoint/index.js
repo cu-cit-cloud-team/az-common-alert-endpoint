@@ -1,10 +1,8 @@
 const axios = require('axios').default;
 
-const { isExpressRouteAlert, initPeersStore } = require('../lib/helpers');
+const { isExpressRouteAlert } = require('../lib/helpers');
 
 const { MS_TEAMS_WEBHOOK_URL } = process.env;
-
-initPeersStore();
 
 module.exports = async (context, req) => {
   try {
