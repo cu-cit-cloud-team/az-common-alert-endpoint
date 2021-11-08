@@ -24,16 +24,31 @@ Azure Function for an HTTP endpoint to receive Azure Monitor alerts using the Co
 - Currently Supported Alerts
   - Azure Service Health Alert
     - [Schema](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions#monitoringservice--servicehealth)
+    - Details:
+      - Gives most important info at a glance
+      - Color bar changes based on incident type/stage
+      - Buttons to toggle additional details or go to service issues page in Azure Portal
+      - HTML in communication converted to Markdown so it displays properly
     - Examples:
       - Collapsed
+        ![service-health-alert.png](./readme-images/service-health-alert.png)
       - Full
+        ![service-health-alert-expanded.png](./readme-images/service-health-alert-expanded.png)
   - ExpressRoute Platform Alert
     - [Schema](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions#monitoringservice--platform)
+    - Details:
+      - Gives most important info at a glance
+      - Color bar changes based on alert type and number of peers affected
+      - Button to go view the alert in the Azure Portal
     - Examples
       - Primary Down
+        ![express-route-alert-one.png](./readme-images/express-route-alert-one.png)
       - Secondary Down
+        ![express-route-alert-two.png](./readme-images/express-route-alert-two.png)
       - Primary Up
+        ![express-route-resolved-one.png](./readme-images/express-route-resolved-one.png)
       - Secondary Up
+        ![express-route-resolved-two.png](./readme-images/express-route-resolved-two.png)
 
 ## GitHub Repo Settings
 
