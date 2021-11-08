@@ -11,6 +11,18 @@ Azure Function for an HTTP endpoint to receive Azure Monitor alerts using the Co
 
 :construction: Work and documentation in progress
 
+## GitHub Repo Settings
+
+- **Actions secrets:**
+  - `AZURE_FUNCTIONAPP_PUBLISH_PROFILE_MAIN`
+    - Publish profile for production function app
+  - `MS_TEAMS_WEBHOOK_URL`
+    - URL of MS Teams Incoming Webhook to be used for production deployment notifications
+  - `ACTIONS_STEP_DEBUG`
+    - `false` (set to `true` for additional debug output in GitHub Actions logs)
+  - `ACTIONS_RUNNER_DEBUG`
+    - `false` (set to `true` for additional debug output in GitHub Actions logs)
+
 ## Local Development
 
 ### Requirements
