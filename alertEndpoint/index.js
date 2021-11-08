@@ -31,7 +31,7 @@ module.exports = async (context, req) => {
             // context.log.info('PLATFORM MONITOR ALERT');
             if (isExpressRouteAlert(alertTargetIDs)) {
               const { messageCard } = require('../lib/cards/expressRouteAlert');
-              adaptiveCard = messageCard(req.body.data);
+              adaptiveCard = await messageCard(req.body.data);
             }
           }
         }
