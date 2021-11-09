@@ -1,4 +1,4 @@
-name: az-common-alert-endpoint
+name: Build & Deploy
 
 on:
   # Allows you to run this workflow manually from the Actions tab
