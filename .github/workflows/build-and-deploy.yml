@@ -86,5 +86,5 @@ jobs:
           github-token: ${{ github.token }}
           webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
           deploy-card: true
-          title: ${{ env.PROJECT_NAME }} Deployment Successful
+          title: ${{ env.DISPLAY_NAME }} Deployment Successful
           color: success
