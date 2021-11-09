@@ -12,7 +12,9 @@ Azure Function for an HTTP endpoint to receive Azure Monitor alerts using the Co
 
 ### `alertEndpoint`
 
-Accepts alert data from Azure Monitors using the Common Alert Schema, formats as an Adaptive Card, and sends to an MS Teams Incoming Webhook
+Accepts alert data from Azure Monitors using the Common Alert Schema - formats alert data
+as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
+[MS Teams Incoming Webhook](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
 
 - Type: HTTP Trigger
 - Auth: Anonymous
