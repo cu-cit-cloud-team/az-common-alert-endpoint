@@ -1,6 +1,6 @@
 # ct-az-common-alert-endpoint
 
-Azure Function for an HTTP endpoint to receive Azure Monitor alerts using the Common Alert Schema
+Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the Common Alert Schema
 
 | Branch | Status | CI/CD Build Trigger |
 | --- | --- | --- |
