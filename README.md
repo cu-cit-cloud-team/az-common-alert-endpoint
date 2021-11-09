@@ -4,14 +4,15 @@ Azure Function for an HTTP endpoint to receive Azure Monitor alerts using the Co
 
 | Branch | Status | CI/CD Build Trigger |
 | --- | --- | --- |
-| `main` | [![az-common-alert-endpoint](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml) | Pushes to `main` branch |
-| | :point_up: passing === built/deployed | |
+| `main` | [![Build & Deploy](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml) | Pushes to `main` branch |
 
-**:construction: Work and documentation in progress**
+## :construction: Work and documentation in progress
 
 ## Azure Function
 
 ### `alertEndpoint`
+
+Accepts alert data from Azure Monitors using the Common Alert Schema, formats as an Adaptive Card, and sends to an MS Teams Incoming Webhook
 
 - Type: HTTP Trigger
 - Auth: Anonymous
@@ -53,7 +54,7 @@ Azure Function for an HTTP endpoint to receive Azure Monitor alerts using the Co
 ## GitHub Repo Settings
 
 - **Actions secrets:**
-  - `AZURE_FUNCTIONAPP_PUBLISH_PROFILE_MAIN`
+  - `AZURE_FUNCTIONAPP_PUBLISH_PROFILE`
     - Publish profile for function app
   - `MS_TEAMS_WEBHOOK_URL`
     - URL of MS Teams Incoming Webhook to be used for deployment notifications
