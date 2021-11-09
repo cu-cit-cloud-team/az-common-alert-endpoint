@@ -52,6 +52,12 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
         ![express-route-resolved-one.png](./readme-images/express-route-resolved-one.png)
       - Secondary Up
         ![express-route-resolved-two.png](./readme-images/express-route-resolved-two.png)
+  - Application Insights Log Alert
+    - [Schema](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions#monitoringservice--application-insights)
+    - Details
+      - :construction: WIP
+    - Examples
+      - :construction: WIP
 
 ## GitHub Repo Settings
 
