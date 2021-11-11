@@ -67,6 +67,8 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
       - Publish profile for function app
     - `MS_TEAMS_WEBHOOK_URL`
       - URL of MS Teams Incoming Webhook to be used for deploy notifications
+    - `MS_TEAMS_ALERT_WEBHOOK_URL`
+      - URL of MS Teams Incoming Webhook to be used for deploy failure notifications (can be same as above)
     - `ACTIONS_STEP_DEBUG`
       - `false` (set to `true` for additional debug output in GitHub Actions logs)
     - `ACTIONS_RUNNER_DEBUG`
