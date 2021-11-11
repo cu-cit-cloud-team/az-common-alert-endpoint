@@ -26,6 +26,7 @@ module.exports = async (context, req) => {
         if (monitoringService) {
           if (monitoringService === 'ServiceHealth') {
             // context.log.info('SERVICE HEALTH ALERT');
+            webHookUrl = MS_TEAMS_ALERT_WEBHOOK_URL;
             const { messageCard } = require('../lib/cards/serviceHealthAlert');
             adaptiveCard = messageCard(req.body.data);
           }
