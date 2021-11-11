@@ -74,7 +74,7 @@ jobs:
         uses: mikesprague/teams-incoming-webhook-action@v1
         with:
           github-token: ${{ github.token }}
-          webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
+          webhook-url: ${{ secrets.MS_TEAMS_ALERT_WEBHOOK_URL }}
           deploy-card: true
           title: ${{ env.DISPLAY_NAME }} Deployment Failed
           color: failure
