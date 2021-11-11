@@ -2,11 +2,18 @@ const axios = require('axios').default;
 
 const { isExpressRouteAlert } = require('../lib/helpers');
 
-const { MS_TEAMS_WEBHOOK_URL } = process.env;
+const {
+  MS_TEAMS_NOTIFICATION_WEBHOOK_URL,
+  MS_TEAMS_ALERT_WEBHOOK_URL,
+  MS_TEAMS_DEV_WEBHOOK_URL,
+  NODE_ENV,
+  LOCAL_DEV,
+} = process.env;
 
 module.exports = async (context, req) => {
   try {
     if (req.body) {
+      let webHookUrl = MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
       const { schemaId } = req.body;
       let adaptiveCard;
       // supported schema: azureMonitorCommonAlertSchema
@@ -30,6 +37,7 @@ module.exports = async (context, req) => {
           if (monitoringService === 'Platform') {
             // context.log.info('PLATFORM MONITOR ALERT');
             if (isExpressRouteAlert(alertTargetIDs)) {
+              webHookUrl = MS_TEAMS_ALERT_WEBHOOK_URL;
               const { messageCard } = require('../lib/cards/expressRouteAlert');
               adaptiveCard = await messageCard(req.body.data);
             }
@@ -37,6 +45,9 @@ module.exports = async (context, req) => {
         }
       }
       if (!adaptiveCard) {
+        // use dev webhook if available, fall back to notification webhook
+        webHookUrl =
+          MS_TEAMS_DEV_WEBHOOK_URL || MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
         const { messageCard } = require('../lib/cards/simple');
         const color = 'warning';
         const title = 'Azure Monitoring Alert (unsupported payload)';
@@ -44,8 +55,16 @@ module.exports = async (context, req) => {
         adaptiveCard = messageCard({ title, color, text });
       }
 
+      // always use dev webhook if provided and in a development environment
+      if (
+        (NODE_ENV === 'development' || LOCAL_DEV === 'true') &&
+        MS_TEAMS_DEV_WEBHOOK_URL !== undefined
+      ) {
+        webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
+      }
+
       await axios
-        .post(MS_TEAMS_WEBHOOK_URL, adaptiveCard)
+        .post(webHookUrl, adaptiveCard)
         .then((response) => {
           context.res = {
             status: 200,
@@ -64,7 +83,10 @@ module.exports = async (context, req) => {
       context.log.error(errorMessage);
       context.res = {
         status: 400,
-        body: errorMessage,
+        body: JSON.stringify({
+          status: 400,
+          error: errorMessage,
+        }),
       };
       context.done();
     }
@@ -72,7 +94,10 @@ module.exports = async (context, req) => {
     context.log.error(error);
     context.res = {
       status: 500,
-      body: error,
+      body: JSON.stringify({
+        status: 500,
+        error,
+      }),
     };
     context.done();
   }
