@@ -62,14 +62,15 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
 ## GitHub Repo Settings
 
 - **Actions secrets:**
-  - `AZURE_FUNCTIONAPP_PUBLISH_PROFILE`
-    - Publish profile for function app
-  - `MS_TEAMS_WEBHOOK_URL`
-    - URL of MS Teams Incoming Webhook to be used for deployment notifications
-  - `ACTIONS_STEP_DEBUG`
-    - `false` (set to `true` for additional debug output in GitHub Actions logs)
-  - `ACTIONS_RUNNER_DEBUG`
-    - `false` (set to `true` for additional debug output in GitHub Actions logs)
+  - **REQUIRED**
+    - `AZURE_FUNCTIONAPP_PUBLISH_PROFILE`
+      - Publish profile for function app
+    - `MS_TEAMS_WEBHOOK_URL`
+      - URL of MS Teams Incoming Webhook to be used for deploy notifications
+    - `ACTIONS_STEP_DEBUG`
+      - `false` (set to `true` for additional debug output in GitHub Actions logs)
+    - `ACTIONS_RUNNER_DEBUG`
+      - `false` (set to `true` for additional debug output in GitHub Actions logs)
 
 ## Local Development
 
@@ -84,7 +85,18 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
 1. Enter directory `cd ct-az-common-alert-endpoint`
 1. Install dependencies `npm install`
 1. Set up environment variables for `MS_TEAMS_WEBHOOK_URL` in `.env` and `local.settings.json`:
-1. Run locally `npm run functions` (for verbose logging use `npm run functions:verbose`)
+   - **REQUIRED**
+     - `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`
+       - URL of MS Teams Incoming Webhook to be used for informational notifications
+     - `MS_TEAMS_ALERT_WEBHOOK_URL`
+       - URL of MS Teams Incoming Webhook to be used for actionable alerts (can be same as above)
+   - **OPTIONAL**
+     - `MS_TEAMS_DEV_WEBHOOK_URL`
+       - URL of MS Teams Incoming Webhook to be used for unsupported payloads and development - if not provided, function will fall back to `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`
+     - `LOCAL_DEV`
+       - Set to `true` to override alert and notification webhooks during development
+       - Make sure to also set up `MS_TEAMS_DEV_WEBHOOK_URL` with a value or it will fall back to `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`
+2. Run locally `npm run functions` (for verbose logging use `npm run functions:verbose`)
 
 #### Posting Sample Data Using `curl`
 
