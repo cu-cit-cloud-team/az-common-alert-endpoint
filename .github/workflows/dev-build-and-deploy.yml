@@ -15,6 +15,7 @@ on:
       - "sample-data/**"
       - "readme-images/**"
       - ".github/dependabot.yml"
+      - "example.local.settings.json"
 
 env:
   NODE_VERSION: 14.x # set this to the node version to use (supports 10.x, 12.x, 14.x)
