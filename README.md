@@ -64,7 +64,9 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
 - **Actions secrets:**
   - **REQUIRED**
     - `AZURE_FUNCTIONAPP_PUBLISH_PROFILE`
-      - Publish profile for function app
+      - Publish profile for production function app
+    - `AZURE_FUNCTIONAPP_PUBLISH_PROFILE_DEV`
+      - Publish profile for dev function app
     - `MS_TEAMS_WEBHOOK_URL`
       - URL of MS Teams Incoming Webhook to be used for deploy notifications
     - `MS_TEAMS_ALERT_WEBHOOK_URL`
