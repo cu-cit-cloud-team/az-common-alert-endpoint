@@ -15,3 +15,4 @@ scratch.js
 .devcontainer
 sample-data/
 readme-images/
+example.local.settings.json

@@ -44,6 +44,10 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
       - Gives most important info at a glance
       - Color bar changes based on alert type and number of peers affected
       - Button to go view the alert in the Azure Portal
+    - Additional Notes/Requirements
+      - Manages state using a JSON file (kept in Blob Storage inside the Function App's existing storage account)
+      - You can specify the blob container (useful for dev vs prod) by setting an environment variable: `BLOB_CONTAINER_NAME`
+        - Uses default value of `functions-data` if `BLOB_CONTAINER_NAME` is not provided
     - Examples
       - Primary Down
         ![express-route-alert-one.png](./readme-images/express-route-alert-one.png)
@@ -98,6 +102,8 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
    - **OPTIONAL**
      - `MS_TEAMS_DEV_WEBHOOK_URL`
        - URL of MS Teams Incoming Webhook to be used for unsupported payloads and development - if not provided, function will fall back to `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`
+     - `BLOB_CONTAINER_NAME`
+       - Name of the Azure Blob container to use for storing state files - defaults to `functions-data`
      - `LOCAL_DEV`
        - Set to `true` to override alert and notification webhooks during development
        - Make sure to also set up `MS_TEAMS_DEV_WEBHOOK_URL` with a value or it will fall back to `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`
