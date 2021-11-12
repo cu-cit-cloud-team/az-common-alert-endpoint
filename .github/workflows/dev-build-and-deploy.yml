@@ -1,0 +1,91 @@
+name: DEV Build & Deploy
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  push:
+    branches:
+      - dev
+    paths-ignore:
+      - "**.md"
+      - "**.png"
+      - ".vscode/**"
+      - ".devcontainer/**"
+      - "sample-data/**"
+      - "readme-images/**"
+      - ".github/dependabot.yml"
+
+env:
+  NODE_VERSION: 14.x # set this to the node version to use (supports 10.x, 12.x, 14.x)
+  DISPLAY_NAME: AZ Alert Endpoint
+  FUNCTION_APP_NAME: ct-common-alert-endpoint
+  FUNCTION_APP_SLOT_NAME: dev
+  FUNCTION_APP_PATH: ./
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+      - name: 📤 Notify Teams
+        uses: mikesprague/teams-incoming-webhook-action@v1
+        with:
+          github-token: ${{ github.token }}
+          webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
+          deploy-card: true
+          title: ${{ env.DISPLAY_NAME }} Deployment Started
+          color: info
+
+      - name: 👷 Checkout repo
+        uses: actions/checkout@v2
+
+      - name: 🏗️ Setup Node.js ${{ env.NODE_VERSION }} environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: ⬆️ Update npm and install dependencies
+        shell: bash
+        run: npm i -g npm && npm install
+
+      - name: 🗑️ Remove Azure Core Function Tools (disk space issues)
+        shell: bash
+        run: rm -rf node_modules/azure-functions-core-tools
+
+      - name: 🛫 Deploy function app to Azure
+        uses: Azure/functions-action@v1
+        with:
+          app-name: ${{ env.FUNCTION_APP_NAME }}
+          package: ${{ env.FUNCTION_APP_PATH }}
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE_DEV }}
+          respect-funcignore: true
+
+      - name: ⚠️ Cancelled Notification
+        if: ${{ cancelled() }}
+        uses: mikesprague/teams-incoming-webhook-action@v1
+        with:
+          github-token: ${{ github.token }}
+          webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
+          deploy-card: true
+          title: ${{ env.DISPLAY_NAME }} Deployment Cancelled
+          color: warning
+
+      - name: ⛔ Failure Notification
+        if: ${{ failure() }}
+        uses: mikesprague/teams-incoming-webhook-action@v1
+        with:
+          github-token: ${{ github.token }}
+          webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
+          deploy-card: true
+          title: ${{ env.DISPLAY_NAME }} Deployment Failed
+          color: failure
+
+      - name: 🎉 Success Notification
+        if: ${{ success() }}
+        uses: mikesprague/teams-incoming-webhook-action@v1
+        with:
+          github-token: ${{ github.token }}
+          webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
+          deploy-card: true
+          title: ${{ env.DISPLAY_NAME }} Deployment Successful
+          color: success
