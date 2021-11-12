@@ -4,7 +4,8 @@ Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the
 
 | Branch | Status | CI/CD Build Trigger |
 | --- | --- | --- |
-| `main` | [![Build & Deploy](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml) | Pushes to `main` branch |
+| `dev` | [![DEV Build & Deploy](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/dev-build-and-deploy.yml/badge.svg?branch=dev)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/dev-build-and-deploy.yml) | Pushes to `dev` branch |
+| `main` | [![Build & Deploy](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml) | PR to `main` branch |
 
 ## :construction: Work and documentation in progress
 
@@ -64,7 +65,9 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
 - **Actions secrets:**
   - **REQUIRED**
     - `AZURE_FUNCTIONAPP_PUBLISH_PROFILE`
-      - Publish profile for function app
+      - Publish profile for production function app
+    - `AZURE_FUNCTIONAPP_PUBLISH_PROFILE_DEV`
+      - Publish profile for dev function app
     - `MS_TEAMS_WEBHOOK_URL`
       - URL of MS Teams Incoming Webhook to be used for deploy notifications
     - `MS_TEAMS_ALERT_WEBHOOK_URL`
