@@ -1,4 +1,4 @@
-name: Build & Deploy
+name: PROD Build & Deploy
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -18,13 +18,13 @@ on:
 
 env:
   NODE_VERSION: 14.x # set this to the node version to use (supports 10.x, 12.x, 14.x)
-  DISPLAY_NAME: AZ Alert Endpoint
+  DISPLAY_NAME: Azure Alert Endpoint
   FUNCTION_APP_NAME: ct-common-alert-endpoint
   FUNCTION_APP_SLOT_NAME: production
   FUNCTION_APP_PATH: ./
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-prod:
     runs-on: windows-latest
     steps:
       - name: 📤 Notify Teams
