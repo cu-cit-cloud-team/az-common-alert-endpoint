@@ -4,7 +4,8 @@ Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the
 
 | Branch | Status | CI/CD Build Trigger |
 | --- | --- | --- |
-| `main` | [![Build & Deploy](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml) | Pushes to `main` branch |
+| `dev` | [![DEV Build & Deploy](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/dev-build-and-deploy.yml/badge.svg?branch=dev)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/dev-build-and-deploy.yml) | Pushes to `dev` branch |
+| `main` | [![Build & Deploy](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml) | PR to `main` branch |
 
 ## :construction: Work and documentation in progress
 
