@@ -1,0 +1,21 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "your-appinsights-instrumentation-key",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=your-appinsights-instrumentation-key;IngestionEndpoint=https://your-region.in.applicationinsights.azure.com/",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=your-function-app-name;AccountKey=your-account-key;EndpointSuffix=core.windows.net",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=your-function-app-name;AccountKey=your-account-key;EndpointSuffix=core.windows.net",
+    "WEBSITE_CONTENTSHARE": "your-content-share",
+    "WEBSITE_NODE_DEFAULT_VERSION": "~14",
+    "WEBSITE_RUN_FROM_PACKAGE": "1",
+    "WEBSITE_TIME_ZONE": "Eastern Standard Time",
+    "AzureWebJobsSecretStorageType": "Blob",
+    "MS_TEAMS_ALERT_WEBHOOK_URL": "https://your-domain.webhook.office.com/webhookb2/guid@guid/IncomingWebhook/webhook-id/guid",
+    "MS_TEAMS_DEV_WEBHOOK_URL": "https://your-domain.webhook.office.com/webhookb2/guid@guid/IncomingWebhook/webhook-id/guid",
+    "MS_TEAMS_NOTIFICATION_WEBHOOK_URL": "https://your-domain.webhook.office.com/webhookb2/guid@guid/IncomingWebhook/webhook-id/guid",
+    "BLOB_CONTAINER_NAME": "your-dev-blob-container-name",
+    "NODE_ENV": "development"
+  }
+}
