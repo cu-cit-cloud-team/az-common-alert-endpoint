@@ -47,5 +47,5 @@ __pycache__/
 .vscode
 
 # misc
-sample-data/app-insights-log-query*.json
+assets/sample-data/app-insights-log-query*.json
 scratch.js

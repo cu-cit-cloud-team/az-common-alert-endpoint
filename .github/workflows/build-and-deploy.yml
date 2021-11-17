@@ -13,8 +13,7 @@ on:
       - "**.png"
       - ".vscode/**"
       - ".devcontainer/**"
-      - "sample-data/**"
-      - "readme-images/**"
+      - "assets/**"
       - ".github/dependabot.yml"
       - "example.local.settings.json"
 

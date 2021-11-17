@@ -35,9 +35,9 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
       - HTML in communication converted to Markdown so it displays properly
     - Examples:
       - Collapsed
-        ![service-health-alert.png](./readme-images/service-health-alert.png)
+        ![service-health-alert.png](./assets/readme-images/service-health-alert.png)
       - Full
-        ![service-health-alert-expanded.png](./readme-images/service-health-alert-expanded.png)
+        ![service-health-alert-expanded.png](./assets/readme-images/service-health-alert-expanded.png)
   - ExpressRoute Platform Alert
     - [Schema](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions#monitoringservice--platform)
     - Details:
@@ -50,13 +50,13 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
         - Uses default value of `functions-data` if `BLOB_CONTAINER_NAME` is not provided
     - Examples
       - Primary Down
-        ![express-route-alert-one.png](./readme-images/express-route-alert-one.png)
+        ![express-route-alert-one.png](./assets/readme-images/express-route-alert-one.png)
       - Secondary Down
-        ![express-route-alert-two.png](./readme-images/express-route-alert-two.png)
+        ![express-route-alert-two.png](./assets/readme-images/express-route-alert-two.png)
       - Primary Up
-        ![express-route-resolved-one.png](./readme-images/express-route-resolved-one.png)
+        ![express-route-resolved-one.png](./assets/readme-images/express-route-resolved-one.png)
       - Secondary Up
-        ![express-route-resolved-two.png](./readme-images/express-route-resolved-two.png)
+        ![express-route-resolved-two.png](./assets/readme-images/express-route-resolved-two.png)
   - Application Insights Log Alert (WIP)
     - [Schema](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions#monitoringservice--application-insights)
     - Details
@@ -107,12 +107,12 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
      - `LOCAL_DEV`
        - Set to `true` to override alert and notification webhooks during development
        - Make sure to also set up `MS_TEAMS_DEV_WEBHOOK_URL` with a value or it will fall back to `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`
-2. Run locally `npm run functions` (for verbose logging use `npm run functions:verbose`)
+1. Run locally `npm run functions` (for verbose logging use `npm run functions:verbose`)
 
 #### Posting Sample Data Using `curl`
 
 Assumes functions are running locally using instructions above and you are in the root of the repo directory in your terminal
 
 ```bash
-curl -X POST -H "Content-Type: application/json" --data "@sample-data/service-health-alert.json" http://localhost:7071/api/alertEndpoint
+curl -X POST -H "Content-Type: application/json" --data "@assets/sample-data/service-health-alert.json" http://localhost:7071/api/alertEndpoint
 ```

@@ -13,6 +13,5 @@ README.md
 *.code-workspace
 scratch.js
 .devcontainer
-sample-data/
-readme-images/
+assets/
 example.local.settings.json
