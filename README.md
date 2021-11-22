@@ -85,7 +85,7 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
 
 ### Requirements
 
-- Node.js = v14.x
+- Node.js = v16.x
 - npm >= v6.x
 
 ### Getting Started
