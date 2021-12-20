@@ -39,9 +39,17 @@ module.exports = async (context, req) => {
           if (monitoringService === 'Platform') {
             // context.log.info('PLATFORM MONITOR ALERT');
             if (isExpressRouteAlert(alertTargetIDs)) {
-              webHookUrl = MS_TEAMS_ALERT_WEBHOOK_URL;
-              const { messageCard } = require('../lib/cards/expressRouteAlert');
-              adaptiveCard = await messageCard(req.body.data);
+              try {
+                webHookUrl = MS_TEAMS_ALERT_WEBHOOK_URL;
+                const {
+                  messageCard,
+                } = require('../lib/cards/expressRouteAlert');
+                adaptiveCard = await messageCard(req.body.data);
+              } catch (error) {
+                // allow processing to continue while developing new expressroute alerts
+                adaptiveCard = null;
+                context.log.error('UNRECOGNIZED EXPRESSROUTE DATA:\n', error);
+              }
             }
           }
         }
