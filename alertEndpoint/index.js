@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 
-const { isExpressRouteAlert } = require('../lib/helpers');
+const { isExpressRouteAlert } = require('../lib/express-route');
 
 const {
   MS_TEAMS_NOTIFICATION_WEBHOOK_URL,
