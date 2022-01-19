@@ -1,0 +1,43 @@
+{
+  "schemaId": "azureMonitorCommonAlertSchema",
+  "data": {
+    "essentials": {
+      "alertId": "/subscriptions/30d34e13-de0b-4a7c-9764-ddafc94199b1/providers/Microsoft.AlertsManagement/alerts/30907719-a06d-4790-8b7e-e399d4c66d6f",
+      "alertRule": "bits out greater than 50mbps",
+      "severity": "Sev3",
+      "signalType": "Metric",
+      "monitorCondition": "Fired",
+      "monitoringService": "Platform",
+      "alertTargetIDs": [
+        "/subscriptions/30d34e13-de0b-4a7c-9764-ddafc94199b1/resourcegroups/expressroute-1-rg/providers/microsoft.network/expressroutecircuits/expressroute-1"
+      ],
+      "configurationItems": ["expressroute-1"],
+      "originAlertId": "30d34e13-de0b-4a7c-9764-ddafc94199b1_expressroute-1-rg_microsoft.insights_metricAlerts_bits out greater than 50mbps_-1438826534",
+      "firedDateTime": "2022-01-06T16:46:40.9510418Z",
+      "description": "Whenever the maximum bitsoutpersecond is greater than 50000000 bits/second",
+      "essentialsVersion": "1.0",
+      "alertContextVersion": "1.0"
+    },
+    "alertContext": {
+      "properties": null,
+      "conditionType": "SingleResourceMultipleMetricCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "metricName": "BitsOutPerSecond",
+            "metricNamespace": "Microsoft.Network/expressRouteCircuits",
+            "operator": "GreaterThan",
+            "threshold": "50000000",
+            "timeAggregation": "Maximum",
+            "dimensions": [],
+            "metricValue": 60462482,
+            "webTestName": null
+          }
+        ],
+        "windowStartTime": "2022-01-06T16:38:30.864Z",
+        "windowEndTime": "2022-01-06T16:43:30.864Z"
+      }
+    }
+  }
+}
