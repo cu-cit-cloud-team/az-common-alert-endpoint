@@ -11,7 +11,7 @@ Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the
 
 ## Azure Function
 
-### `alertEndpoint`
+### `alert-endpoint`
 
 Accepts alert data from Azure Monitors using the Common Alert Schema - formats alert data
 as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
@@ -114,5 +114,5 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
 Assumes functions are running locally using instructions above and you are in the root of the repo directory in your terminal
 
 ```bash
-curl -X POST -H "Content-Type: application/json" --data "@assets/sample-data/service-health-alert.json" http://localhost:7071/api/alertEndpoint
+curl -X POST -H "Content-Type: application/json" --data "@assets/sample-data/service-health-alert.json" http://localhost:7071/api/alert-endpoint
 ```
