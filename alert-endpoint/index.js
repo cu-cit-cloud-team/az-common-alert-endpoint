@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 
-const { isExpressRouteAlert } = require('../lib/helpers');
+const { isExpressRouteAlert } = require('../lib/express-route');
 
 const {
   MS_TEAMS_NOTIFICATION_WEBHOOK_URL,
@@ -28,12 +28,14 @@ module.exports = async (context, req) => {
             // context.log.info('SERVICE HEALTH ALERT');
             context.log.info('SERVICE HEALTH ALERT DATA\n', req.body.data);
             webHookUrl = MS_TEAMS_ALERT_WEBHOOK_URL;
-            const { messageCard } = require('../lib/cards/serviceHealthAlert');
+            const {
+              messageCard,
+            } = require('../lib/cards/service-health-alert');
             adaptiveCard = messageCard(req.body.data);
           }
           if (monitoringService === 'Application Insights') {
             // context.log.info('ACTIVITY LOG MONITOR ALERT');
-            // const { messageCard } = require('../lib/cards/activityLogsAlert');
+            // const { messageCard } = require('../lib/cards/app-insights-log-alert');
             // adaptiveCard = messageCard(req.body);
           }
           if (monitoringService === 'Platform') {
@@ -43,7 +45,7 @@ module.exports = async (context, req) => {
                 webHookUrl = MS_TEAMS_ALERT_WEBHOOK_URL;
                 const {
                   messageCard,
-                } = require('../lib/cards/expressRouteAlert');
+                } = require('../lib/cards/express-route-alert');
                 adaptiveCard = await messageCard(req.body.data);
               } catch (error) {
                 // allow processing to continue while developing new expressroute alerts
