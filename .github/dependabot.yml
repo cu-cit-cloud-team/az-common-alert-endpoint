@@ -5,7 +5,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "10:00"
+      time: "7:00"
       timezone: "America/New_York"
     target-branch: "dev"
   # maintain npm dependencies
@@ -13,6 +13,6 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "10:00"
+      time: "7:00"
       timezone: "America/New_York"
     target-branch: "dev"
