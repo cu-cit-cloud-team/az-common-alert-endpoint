@@ -43,14 +43,39 @@ module.exports = async (context, req) => {
             if (isExpressRouteAlert(alertTargetIDs)) {
               try {
                 webHookUrl = MS_TEAMS_ALERT_WEBHOOK_URL;
-                const {
-                  messageCard,
-                } = require('../lib/cards/express-route-alert');
-                adaptiveCard = await messageCard(req.body.data);
+                const burstAlertMetrics = [
+                  'BitsOutPerSecond',
+                  'BitsInPerSecond',
+                ];
+                const upDownAlertMetrics = ['BgpAvailability'];
+                if (
+                  burstAlertMetrics.includes(
+                    req.body.data.alertContext.condition.allOf[0].metricName,
+                  )
+                ) {
+                  webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
+                  const {
+                    messageCard,
+                  } = require('../lib/cards/express-route-burst-alert');
+                  adaptiveCard = await messageCard(req.body.data);
+                }
+                if (
+                  upDownAlertMetrics.includes(
+                    req.body.data.alertContext.condition.allOf[0].metricName,
+                  )
+                ) {
+                  const {
+                    messageCard,
+                  } = require('../lib/cards/express-route-alert');
+                  adaptiveCard = await messageCard(req.body.data);
+                }
               } catch (error) {
                 // allow processing to continue while developing new expressroute alerts
                 adaptiveCard = null;
-                context.log.error('UNRECOGNIZED EXPRESSROUTE DATA:\n', error);
+                context.log.info(
+                  '⚠️  UNRECOGNIZED EXPRESSROUTE DATA:\n',
+                  error,
+                );
               }
             }
           }
