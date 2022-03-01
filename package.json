@@ -36,7 +36,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/runtime": "^7.17.2",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
-    "@typescript-eslint/parser": "^5.12.1",
+    "@typescript-eslint/parser": "^5.13.0",
     "azure-functions-core-tools": "^4.0.3971",
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
