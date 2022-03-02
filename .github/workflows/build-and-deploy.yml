@@ -26,7 +26,6 @@ env:
 
 jobs:
   build-and-deploy-prod:
-    if: github.event.pull_request.merged
     runs-on: windows-latest
     steps:
       - name: 📤 Notify Teams
