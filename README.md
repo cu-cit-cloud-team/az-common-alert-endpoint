@@ -107,6 +107,9 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
      - `LOCAL_DEV`
        - Set to `true` to override alert and notification webhooks during development
        - Make sure to also set up `MS_TEAMS_DEV_WEBHOOK_URL` with a value or it will fall back to `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`
+     - `WEBSITE_RUN_FROM_PACKAGE`
+       - Change to `0` to _trick_ the runtime into reloading when changes are made (otherwise you have to manually stop and run again)
+
 1. Run locally `npm run functions` (for verbose logging use `npm run functions:verbose`)
 
 #### Posting Sample Data Using `curl`
