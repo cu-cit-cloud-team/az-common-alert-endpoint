@@ -48,7 +48,6 @@ module.exports = async (context, req) => {
                   alertContext.condition.allOf[0].metricMeasureColumn,
                 )
               ) {
-                webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
                 const {
                   messageCard,
                 } = require('../lib/cards/express-route-log-query-burst-alert');
@@ -67,7 +66,6 @@ module.exports = async (context, req) => {
             // context.log.info('PLATFORM MONITOR ALERT');
             if (isExpressRouteAlert(alertTargetIDs)) {
               try {
-                webHookUrl = MS_TEAMS_ALERT_WEBHOOK_URL;
                 const burstAlertMetrics = [
                   'BitsOutPerSecond',
                   'BitsInPerSecond',
