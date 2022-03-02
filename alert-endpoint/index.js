@@ -27,7 +27,6 @@ module.exports = async (context, req) => {
           const { alertContext } = req.body.data;
           if (monitoringService === 'ServiceHealth') {
             // context.log.info('SERVICE HEALTH ALERT');
-            context.log.info('SERVICE HEALTH ALERT DATA\n', req.body.data);
             webHookUrl = MS_TEAMS_ALERT_WEBHOOK_URL;
             const {
               messageCard,
@@ -52,7 +51,6 @@ module.exports = async (context, req) => {
                   messageCard,
                 } = require('../lib/cards/express-route-log-query-burst-alert');
                 adaptiveCard = await messageCard(req.body);
-                context.log('adaptiveCard: ', adaptiveCard);
               }
             } catch (error) {
               adaptiveCard = null;
