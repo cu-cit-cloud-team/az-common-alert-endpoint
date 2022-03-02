@@ -48,15 +48,19 @@ module.exports = async (context, req) => {
                   alertContext.condition.allOf[0].metricMeasureColumn,
                 )
               ) {
+                webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
+                const {
+                  messageCard,
+                } = require('../lib/cards/express-route-log-query-burst-alert');
+                adaptiveCard = await messageCard(req.body);
+                context.log('adaptiveCard: ', adaptiveCard);
               }
-              // const {
-              //   messageCard,
-              // } = require('../lib/cards/express-route-log-query-burst-alert');
-              // adaptiveCard = await messageCard(req.body);
-              // context.log('adaptiveCard: ', adaptiveCard);
             } catch (error) {
               adaptiveCard = null;
-              context.log.info('⚠️  UNRECOGNIZED LOG ALERT DATA:\n', error);
+              context.log.info(
+                '⚠️  UNRECOGNIZED LOG QUERY ALERT DATA:\n',
+                error,
+              );
             }
           }
           if (monitoringService === 'Platform') {
