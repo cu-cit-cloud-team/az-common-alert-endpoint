@@ -24,6 +24,7 @@ module.exports = async (context, req) => {
       ) {
         const { monitoringService, alertTargetIDs } = req.body.data.essentials;
         if (monitoringService) {
+          const { alertContext } = req.body.data;
           if (monitoringService === 'ServiceHealth') {
             // context.log.info('SERVICE HEALTH ALERT');
             context.log.info('SERVICE HEALTH ALERT DATA\n', req.body.data);
@@ -33,10 +34,30 @@ module.exports = async (context, req) => {
             } = require('../lib/cards/service-health-alert');
             adaptiveCard = messageCard(req.body.data);
           }
-          if (monitoringService === 'Application Insights') {
-            // context.log.info('ACTIVITY LOG MONITOR ALERT');
-            // const { messageCard } = require('../lib/cards/app-insights-log-alert');
-            // adaptiveCard = messageCard(req.body);
+          const logAlertServices = [
+            'Log Alerts V2',
+            'Log Alerts',
+            'Application Insights',
+          ];
+          if (logAlertServices.includes(monitoringService)) {
+            // context.log.info('LOG QUERY ALERT');
+            try {
+              const burstAlertMetrics = ['BitsOutPerSecond', 'BitsInPerSecond'];
+              if (
+                burstAlertMetrics.includes(
+                  alertContext.condition.allOf[0].metricMeasureColumn,
+                )
+              ) {
+              }
+              // const {
+              //   messageCard,
+              // } = require('../lib/cards/express-route-log-query-burst-alert');
+              // adaptiveCard = await messageCard(req.body);
+              // context.log('adaptiveCard: ', adaptiveCard);
+            } catch (error) {
+              adaptiveCard = null;
+              context.log.info('⚠️  UNRECOGNIZED LOG ALERT DATA:\n', error);
+            }
           }
           if (monitoringService === 'Platform') {
             // context.log.info('PLATFORM MONITOR ALERT');
@@ -50,18 +71,18 @@ module.exports = async (context, req) => {
                 const upDownAlertMetrics = ['BgpAvailability'];
                 if (
                   burstAlertMetrics.includes(
-                    req.body.data.alertContext.condition.allOf[0].metricName,
+                    alertContext.condition.allOf[0].metricName,
                   )
                 ) {
                   webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
                   const {
                     messageCard,
-                  } = require('../lib/cards/express-route-burst-alert');
+                  } = require('../lib/cards/express-route-metric-burst-alert');
                   adaptiveCard = await messageCard(req.body.data);
                 }
                 if (
                   upDownAlertMetrics.includes(
-                    req.body.data.alertContext.condition.allOf[0].metricName,
+                    alertContext.condition.allOf[0].metricName,
                   )
                 ) {
                   const {
