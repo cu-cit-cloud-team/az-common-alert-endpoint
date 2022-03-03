@@ -57,6 +57,22 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
         ![express-route-resolved-one.png](./assets/readme-images/express-route-resolved-one.png)
       - Secondary Up
         ![express-route-resolved-two.png](./assets/readme-images/express-route-resolved-two.png)
+  - Log Alerts V2 (log query search)
+    - [Schema](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions#monitoringservice--log-alerts-v2)
+    - Currently supports ExpressRoute BitsInPerSecond/BitsOutPerSecond Log Searches
+      - Example query: `AzureMetrics | where MetricName == 'BitsOutPerSecond' and Maximum >= 50000000 | order by TimeGenerated desc | limit 10 | where TimeGenerated > ago(10m) | summarize BitsOutPerSecond = sum(Maximum) by TimeGenerated`
+      - Details:
+        - Gives most important info at a glance
+        - Color bar and icon changes based on alert status
+        - Button to go view the alert in the Azure Portal
+        - Button to view the log query results in the Azure Portal
+        - Currently set to fire if it's in violation for at least 2 of the last 3 evaluation periods (eval period is currently 5 minutes)
+      - Examples:
+        - Burst Notification
+          ![express-route-burst-notification.png](./assets/readme-images/express-route-burst-notification.png)
+        - Resolved Notification
+          ![express-route-burst-resolved-notification.png](./assets/readme-images/express-route-burst-resolved-notification.png)
+
   - Application Insights Log Alert (WIP)
     - [Schema](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions#monitoringservice--application-insights)
     - Details
