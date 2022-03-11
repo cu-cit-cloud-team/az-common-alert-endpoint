@@ -21,7 +21,7 @@
     "npm": ">= 7.x"
   },
   "dependencies": {
-    "@azure/storage-blob": "^12.8.0",
+    "@azure/storage-blob": "^12.9.0",
     "axios": "^0.26.1",
     "dayjs": "^1.10.8",
     "dotenv": "^16.0.0",
