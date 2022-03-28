@@ -52,6 +52,14 @@ module.exports = async (context, req) => {
                 } = require('../lib/cards/express-route-log-query-burst-alert');
                 adaptiveCard = await messageCard(req.body);
               }
+              if (!adaptiveCard) {
+                // we have a log query alert that's not expressroute related
+                // use generic app insights log query alert card
+                const {
+                  messageCard,
+                } = require('../lib/cards/app-insights-log-query-alert');
+                adaptiveCard = await messageCard(req.body);
+              }
             } catch (error) {
               adaptiveCard = null;
               context.log.info(
