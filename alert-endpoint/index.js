@@ -45,7 +45,7 @@ module.exports = async (context, req) => {
               const burstAlertMetrics = ['BitsOutPerSecond', 'BitsInPerSecond'];
               if (
                 burstAlertMetrics.includes(
-                  alertContext.condition.allOf[0].metricMeasureColumn,
+                  alertContext.condition && alertContext.condition.allOf[0].metricMeasureColumn,
                 )
               ) {
                 const {
@@ -104,7 +104,7 @@ module.exports = async (context, req) => {
           MS_TEAMS_DEV_WEBHOOK_URL || MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
         const { messageCard } = require('../lib/cards/simple');
         const color = 'warning';
-        const title = 'Azure Monitoring Alert (unsupported payload)';
+        const title = '⚠️  Azure Monitoring Alert (unsupported payload)';
         const text = JSON.stringify(req.body);
         adaptiveCard = messageCard({ title, color, text });
       }
@@ -128,7 +128,7 @@ module.exports = async (context, req) => {
         })
         .catch((error) => {
           // log error for dev and/or debugging purposes
-          context.log.error('AXIOS ERROR:\n', error);
+          context.log.error('⚠️  AXIOS ERROR:\n', error);
           // bubble error up so it throws 500 and outputs content
           throw error;
         });
