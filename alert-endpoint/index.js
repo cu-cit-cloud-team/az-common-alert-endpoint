@@ -41,6 +41,7 @@ module.exports = async (context, req) => {
           if (logAlertServices.includes(monitoringService)) {
             // context.log.info('LOG QUERY ALERT');
             try {
+              // check for expressroute data and use that card if it is
               const burstAlertMetrics = ['BitsOutPerSecond', 'BitsInPerSecond'];
               if (
                 burstAlertMetrics.includes(
@@ -52,9 +53,8 @@ module.exports = async (context, req) => {
                 } = require('../lib/cards/express-route-log-query-burst-alert');
                 adaptiveCard = await messageCard(req.body);
               }
+              // no custom adaptiveCard in use, default to the generic handler
               if (!adaptiveCard) {
-                // we have a log query alert that's not expressroute related
-                // use generic app insights log query alert card
                 const {
                   messageCard,
                 } = require('../lib/cards/app-insights-log-query-alert');
@@ -68,26 +68,14 @@ module.exports = async (context, req) => {
               );
             }
           }
-          if (monitoringService === 'Platform') {
+          const platformAlertServices = [
+            'Platform',
+          ];
+          if (platformAlertServices.includes(monitoringService)) {
             // context.log.info('PLATFORM MONITOR ALERT');
             if (isExpressRouteAlert(alertTargetIDs)) {
               try {
-                const burstAlertMetrics = [
-                  'BitsOutPerSecond',
-                  'BitsInPerSecond',
-                ];
                 const upDownAlertMetrics = ['BgpAvailability'];
-                if (
-                  burstAlertMetrics.includes(
-                    alertContext.condition.allOf[0].metricName,
-                  )
-                ) {
-                  webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
-                  const {
-                    messageCard,
-                  } = require('../lib/cards/express-route-metric-burst-alert');
-                  adaptiveCard = await messageCard(req.body.data);
-                }
                 if (
                   upDownAlertMetrics.includes(
                     alertContext.condition.allOf[0].metricName,
@@ -99,10 +87,9 @@ module.exports = async (context, req) => {
                   adaptiveCard = await messageCard(req.body.data);
                 }
               } catch (error) {
-                // allow processing to continue while developing new expressroute alerts
                 adaptiveCard = null;
                 context.log.info(
-                  '⚠️  UNRECOGNIZED EXPRESSROUTE DATA:\n',
+                  '⚠️  UNRECOGNIZED PLATFORM ALERT DATA:\n',
                   error,
                 );
               }
@@ -110,6 +97,7 @@ module.exports = async (context, req) => {
           }
         }
       }
+      // we have unrecognized data or there's been an error
       if (!adaptiveCard) {
         // use dev webhook if available, fall back to notification webhook
         webHookUrl =
