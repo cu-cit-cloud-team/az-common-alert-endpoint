@@ -59,6 +59,7 @@ module.exports = async (context, req) => {
                   messageCard,
                 } = require('../lib/cards/app-insights-log-query-alert');
                 adaptiveCard = await messageCard(req.body);
+                webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
               }
             } catch (error) {
               adaptiveCard = null;
