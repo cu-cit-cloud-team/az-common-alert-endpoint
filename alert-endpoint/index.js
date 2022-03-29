@@ -41,16 +41,25 @@ module.exports = async (context, req) => {
           if (logAlertServices.includes(monitoringService)) {
             // context.log.info('LOG QUERY ALERT');
             try {
+              // check for expressroute data and use that card if it is
               const burstAlertMetrics = ['BitsOutPerSecond', 'BitsInPerSecond'];
               if (
                 burstAlertMetrics.includes(
-                  alertContext.condition.allOf[0].metricMeasureColumn,
+                  alertContext.condition && alertContext.condition.allOf[0].metricMeasureColumn,
                 )
               ) {
                 const {
                   messageCard,
                 } = require('../lib/cards/express-route-log-query-burst-alert');
                 adaptiveCard = await messageCard(req.body);
+              }
+              // no custom adaptiveCard in use, default to the generic handler
+              if (!adaptiveCard) {
+                const {
+                  messageCard,
+                } = require('../lib/cards/app-insights-log-query-alert');
+                adaptiveCard = await messageCard(req.body);
+                webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
               }
             } catch (error) {
               adaptiveCard = null;
@@ -60,26 +69,14 @@ module.exports = async (context, req) => {
               );
             }
           }
-          if (monitoringService === 'Platform') {
+          const platformAlertServices = [
+            'Platform',
+          ];
+          if (platformAlertServices.includes(monitoringService)) {
             // context.log.info('PLATFORM MONITOR ALERT');
             if (isExpressRouteAlert(alertTargetIDs)) {
               try {
-                const burstAlertMetrics = [
-                  'BitsOutPerSecond',
-                  'BitsInPerSecond',
-                ];
                 const upDownAlertMetrics = ['BgpAvailability'];
-                if (
-                  burstAlertMetrics.includes(
-                    alertContext.condition.allOf[0].metricName,
-                  )
-                ) {
-                  webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
-                  const {
-                    messageCard,
-                  } = require('../lib/cards/express-route-metric-burst-alert');
-                  adaptiveCard = await messageCard(req.body.data);
-                }
                 if (
                   upDownAlertMetrics.includes(
                     alertContext.condition.allOf[0].metricName,
@@ -91,10 +88,9 @@ module.exports = async (context, req) => {
                   adaptiveCard = await messageCard(req.body.data);
                 }
               } catch (error) {
-                // allow processing to continue while developing new expressroute alerts
                 adaptiveCard = null;
                 context.log.info(
-                  '⚠️  UNRECOGNIZED EXPRESSROUTE DATA:\n',
+                  '⚠️  UNRECOGNIZED PLATFORM ALERT DATA:\n',
                   error,
                 );
               }
@@ -102,13 +98,14 @@ module.exports = async (context, req) => {
           }
         }
       }
+      // we have unrecognized data or there's been an error
       if (!adaptiveCard) {
         // use dev webhook if available, fall back to notification webhook
         webHookUrl =
           MS_TEAMS_DEV_WEBHOOK_URL || MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
         const { messageCard } = require('../lib/cards/simple');
         const color = 'warning';
-        const title = 'Azure Monitoring Alert (unsupported payload)';
+        const title = '⚠️  Azure Monitoring Alert (unsupported payload)';
         const text = JSON.stringify(req.body);
         adaptiveCard = messageCard({ title, color, text });
       }
@@ -132,7 +129,7 @@ module.exports = async (context, req) => {
         })
         .catch((error) => {
           // log error for dev and/or debugging purposes
-          context.log.error('AXIOS ERROR:\n', error);
+          context.log.error('⚠️  AXIOS ERROR:\n', error);
           // bubble error up so it throws 500 and outputs content
           throw error;
         });
