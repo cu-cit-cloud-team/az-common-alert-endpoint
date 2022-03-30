@@ -57,7 +57,7 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
         ![express-route-resolved-one.png](./assets/readme-images/express-route-resolved-one.png)
       - Secondary Up
         ![express-route-resolved-two.png](./assets/readme-images/express-route-resolved-two.png)
-  - Log Alerts V2 (log query search)
+  - ExpressRoute Bursts via log query search
     - [Schema](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions#monitoringservice--log-alerts-v2)
     - Currently supports ExpressRoute BitsInPerSecond/BitsOutPerSecond Log Searches
       - Example query: `AzureMetrics | where MetricName == 'BitsOutPerSecond' and Maximum >= 50000000 | order by TimeGenerated desc | limit 10 | where TimeGenerated > ago(10m) | summarize BitsOutPerSecond = sum(Maximum) by TimeGenerated`
@@ -73,12 +73,23 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
         - Resolved Notification
           ![express-route-burst-resolved-notification.png](./assets/readme-images/express-route-burst-resolved-notification.png)
 
-  - Application Insights Log Alert (WIP)
-    - [Schema](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions#monitoringservice--application-insights)
+  - Log Queries (Application Insights Log Alert / Log Alerts V2)
+    - Schemas
+      - [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions#monitoringservice--application-insights)
+      - [Log Alerts V2](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions#monitoringservice--log-alerts-v2)
     - Details
-      - WIP
+      - Generic heading identifies it as an Azure Log Query Alert
+      - Color bar and icons change based on alert severity (alert severity is chosen during setup, it's a user controlled value)
+      - Includes alert rule name, description (if provided), and log analytics search query to make it easier to grok what's alerting
+      - Button to view the log query results in the Azure Portal
+      - Button to view alert(s) in the Azure Portal
     - Examples
-      - WIP
+      - Sev1 (Alert)
+        ![log-query-alert-sev1.png](./assets/readme-images/log-query-alert-sev1.png)
+      - Sev2 (Warning)
+        ![log-query-alert-sev2.png](./assets/readme-images/log-query-alert-sev2.png)
+      - Sev3 (Informational) / Sev4 (Verbose)
+        ![log-query-alert-sev3-sev4.png](./assets/readme-images/log-query-alert-sev3-sev4.png)
 
 ## GitHub Repo Settings
 
