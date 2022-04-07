@@ -4,7 +4,7 @@ const { isExpressRouteAlert } = require('../lib/express-route');
 
 const {
   MS_TEAMS_NOTIFICATION_WEBHOOK_URL,
-  MS_TEAMS_ALERT_WEBHOOK_URL,
+  // MS_TEAMS_ALERT_WEBHOOK_URL,
   MS_TEAMS_DEV_WEBHOOK_URL,
   NODE_ENV,
   LOCAL_DEV,
@@ -27,7 +27,7 @@ module.exports = async (context, req) => {
           const { alertContext } = req.body.data;
           if (monitoringService === 'ServiceHealth') {
             // context.log.info('SERVICE HEALTH ALERT');
-            webHookUrl = MS_TEAMS_ALERT_WEBHOOK_URL;
+            webHookUrl = MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
             const {
               messageCard,
             } = require('../lib/cards/service-health-alert');
@@ -45,7 +45,8 @@ module.exports = async (context, req) => {
               const burstAlertMetrics = ['BitsOutPerSecond', 'BitsInPerSecond'];
               if (
                 burstAlertMetrics.includes(
-                  alertContext.condition && alertContext.condition.allOf[0].metricMeasureColumn,
+                  alertContext.condition &&
+                    alertContext.condition.allOf[0].metricMeasureColumn,
                 )
               ) {
                 const {
@@ -69,9 +70,7 @@ module.exports = async (context, req) => {
               );
             }
           }
-          const platformAlertServices = [
-            'Platform',
-          ];
+          const platformAlertServices = ['Platform'];
           if (platformAlertServices.includes(monitoringService)) {
             // context.log.info('PLATFORM MONITOR ALERT');
             if (isExpressRouteAlert(alertTargetIDs)) {
