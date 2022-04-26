@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@azure/storage-blob": "^12.9.0",
-    "axios": "^0.26.1",
+    "axios": "^0.27.1",
     "dayjs": "^1.11.1",
     "dotenv": "^16.0.0",
     "turndown": "^7.1.1"
