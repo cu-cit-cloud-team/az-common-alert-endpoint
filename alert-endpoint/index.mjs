@@ -1,6 +1,6 @@
-const axios = require('axios').default;
+import axios from 'axios';
 
-const { isExpressRouteAlert } = require('../lib/express-route');
+import { isExpressRouteAlert } from '../lib/express-route.js';
 
 const {
   MS_TEAMS_NOTIFICATION_WEBHOOK_URL,
@@ -10,7 +10,7 @@ const {
   LOCAL_DEV,
 } = process.env;
 
-module.exports = async (context, req) => {
+export default async (context, req) => {
   try {
     if (req.body) {
       let webHookUrl = MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
