@@ -50,14 +50,14 @@ export default async (context, req) => {
                 )
               ) {
                 const { messageCard } = await import(
-                  '../lib/cards/express-route-log-query-burst-alert'
+                  '../lib/cards/express-route-log-query-burst-alert.js'
                 );
                 adaptiveCard = await messageCard(req.body);
               }
               // no custom adaptiveCard in use, default to the generic handler
               if (!adaptiveCard) {
                 const { messageCard } = await import(
-                  '../lib/cards/app-insights-log-query-alert'
+                  '../lib/cards/app-insights-log-query-alert.js'
                 );
                 adaptiveCard = await messageCard(req.body);
                 webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
@@ -82,7 +82,7 @@ export default async (context, req) => {
                   )
                 ) {
                   const { messageCard } = await import(
-                    '../lib/cards/express-route-alert'
+                    '../lib/cards/express-route-alert.js'
                   );
                   adaptiveCard = await messageCard(req.body.data);
                 }
@@ -102,7 +102,7 @@ export default async (context, req) => {
         // use dev webhook if available, fall back to notification webhook
         webHookUrl =
           MS_TEAMS_DEV_WEBHOOK_URL || MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
-        const { messageCard } = await import('../lib/cards/simple');
+        const { messageCard } = await import('../lib/cards/simple.js');
         const color = 'warning';
         const title = '⚠️  Azure Monitoring Alert (unsupported payload)';
         const text = JSON.stringify(req.body);
