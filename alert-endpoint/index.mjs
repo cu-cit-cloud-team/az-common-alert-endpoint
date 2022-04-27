@@ -28,9 +28,9 @@ export default async (context, req) => {
           if (monitoringService === 'ServiceHealth') {
             // context.log.info('SERVICE HEALTH ALERT');
             webHookUrl = MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
-            const {
-              messageCard,
-            } = require('../lib/cards/service-health-alert');
+            const { messageCard } = await import(
+              '../lib/cards/service-health-alert.js'
+            );
             adaptiveCard = messageCard(req.body.data);
           }
           const logAlertServices = [
@@ -49,16 +49,16 @@ export default async (context, req) => {
                     alertContext.condition.allOf[0].metricMeasureColumn,
                 )
               ) {
-                const {
-                  messageCard,
-                } = require('../lib/cards/express-route-log-query-burst-alert');
+                const { messageCard } = await import(
+                  '../lib/cards/express-route-log-query-burst-alert'
+                );
                 adaptiveCard = await messageCard(req.body);
               }
               // no custom adaptiveCard in use, default to the generic handler
               if (!adaptiveCard) {
-                const {
-                  messageCard,
-                } = require('../lib/cards/app-insights-log-query-alert');
+                const { messageCard } = await import(
+                  '../lib/cards/app-insights-log-query-alert'
+                );
                 adaptiveCard = await messageCard(req.body);
                 webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
               }
@@ -81,9 +81,9 @@ export default async (context, req) => {
                     alertContext.condition.allOf[0].metricName,
                   )
                 ) {
-                  const {
-                    messageCard,
-                  } = require('../lib/cards/express-route-alert');
+                  const { messageCard } = await import(
+                    '../lib/cards/express-route-alert'
+                  );
                   adaptiveCard = await messageCard(req.body.data);
                 }
               } catch (error) {
@@ -102,7 +102,7 @@ export default async (context, req) => {
         // use dev webhook if available, fall back to notification webhook
         webHookUrl =
           MS_TEAMS_DEV_WEBHOOK_URL || MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
-        const { messageCard } = require('../lib/cards/simple');
+        const { messageCard } = await import('../lib/cards/simple');
         const color = 'warning';
         const title = '⚠️  Azure Monitoring Alert (unsupported payload)';
         const text = JSON.stringify(req.body);
