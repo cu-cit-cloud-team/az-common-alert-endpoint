@@ -29,53 +29,21 @@
     "turndown": "^7.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.9",
+    "@babel/core": "^7.17.10",
     "@babel/eslint-parser": "^7.17.0",
-    "@babel/eslint-plugin": "^7.17.7",
-    "@babel/node": "^7.16.8",
-    "@babel/plugin-transform-runtime": "^7.17.0",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/runtime": "^7.17.9",
-    "@typescript-eslint/eslint-plugin": "^5.21.0",
-    "@typescript-eslint/parser": "^5.21.0",
     "azure-functions-core-tools": "^4.0.4483",
-    "babel-loader": "^8.2.5",
     "cross-env": "^7.0.3",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.2",
-    "prettier-eslint": "^14.0.1",
-    "typescript": "^4.6.3",
-    "webpack": "^5.72.0"
-  },
-  "babel": {
-    "plugins": [
-      [
-        "@babel/plugin-transform-runtime",
-        {
-          "corejs": false,
-          "helpers": true,
-          "regenerator": true,
-          "useESModules": true
-        }
-      ]
-    ],
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "14"
-          }
-        }
-      ]
-    ]
+    "prettier-eslint": "^14.0.2"
   },
   "eslintConfig": {
     "env": {
       "browser": false,
-      "commonjs": true,
+      "commonjs": false,
       "es6": true,
       "node": true
     },
@@ -84,6 +52,7 @@
       "prettier"
     ],
     "plugins": [
+      "import",
       "prettier"
     ],
     "ignorePatterns": [
@@ -91,7 +60,7 @@
       "**/node_modules/*"
     ],
     "parserOptions": {
-      "parser": "babel-eslint",
+      "parser": "@babel/eslint-parser",
       "ecmaVersion": 11,
       "sourceType": "module",
       "ecmaFeatures": {
