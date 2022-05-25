@@ -29,8 +29,8 @@
     "turndown": "7.1.1"
   },
   "devDependencies": {
-    "@babel/core": "7.18.0",
-    "@babel/eslint-parser": "7.17.0",
+    "@babel/core": "7.18.2",
+    "@babel/eslint-parser": "7.18.2",
     "azure-functions-core-tools": "4.0.4544",
     "cross-env": "7.0.3",
     "eslint": "8.16.0",
