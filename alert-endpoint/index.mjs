@@ -120,11 +120,10 @@ export default async (context, req) => {
       await axios
         .post(webHookUrl, adaptiveCard)
         .then((response) => {
-          context.res = {
+          return {
             status: 200,
             body: response.data,
           };
-          context.done();
         })
         .catch((error) => {
           // log error for dev and/or debugging purposes
@@ -135,24 +134,22 @@ export default async (context, req) => {
     } else {
       const errorMessage = 'ERROR: No POST data received';
       context.log.error(errorMessage);
-      context.res = {
+      return {
         status: 400,
         body: JSON.stringify({
           status: 400,
           error: errorMessage,
         }),
       };
-      context.done();
     }
   } catch (error) {
     context.log.error(error);
-    context.res = {
+    return {
       status: 500,
       body: JSON.stringify({
         status: 500,
         error,
       }),
     };
-    context.done();
   }
 };
