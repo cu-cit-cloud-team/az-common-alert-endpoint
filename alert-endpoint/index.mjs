@@ -25,6 +25,8 @@ export default async (context, req) => {
         const { monitoringService, alertTargetIDs } = req.body.data.essentials;
         if (monitoringService) {
           const { alertContext } = req.body.data;
+
+          // service health alerts
           if (monitoringService === 'ServiceHealth') {
             // context.log.info('SERVICE HEALTH ALERT');
             webHookUrl = MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
@@ -33,6 +35,8 @@ export default async (context, req) => {
             );
             adaptiveCard = messageCard(req.body.data);
           }
+
+          // log query alerts
           const logAlertServices = [
             'Log Alerts V2',
             'Log Alerts',
@@ -54,7 +58,7 @@ export default async (context, req) => {
                 );
                 adaptiveCard = await messageCard(req.body);
               }
-              // no custom adaptiveCard in use, default to the generic handler
+              // no custom adaptiveCard in use, default to the log query handler
               if (!adaptiveCard) {
                 const { messageCard } = await import(
                   '../lib/cards/app-insights-log-query-alert.js'
@@ -70,6 +74,8 @@ export default async (context, req) => {
               );
             }
           }
+
+          // platform/monitor alerts
           const platformAlertServices = ['Platform'];
           if (platformAlertServices.includes(monitoringService)) {
             // context.log.info('PLATFORM MONITOR ALERT');
@@ -97,6 +103,7 @@ export default async (context, req) => {
           }
         }
       }
+
       // we have unrecognized data or there's been an error
       if (!adaptiveCard) {
         // use dev webhook if available, fall back to notification webhook
