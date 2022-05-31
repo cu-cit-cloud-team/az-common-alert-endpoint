@@ -25,6 +25,8 @@ export default async (context, req) => {
         const { monitoringService, alertTargetIDs } = req.body.data.essentials;
         if (monitoringService) {
           const { alertContext } = req.body.data;
+
+          // service health alerts
           if (monitoringService === 'ServiceHealth') {
             // context.log.info('SERVICE HEALTH ALERT');
             webHookUrl = MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
@@ -33,6 +35,8 @@ export default async (context, req) => {
             );
             adaptiveCard = messageCard(req.body.data);
           }
+
+          // log query alerts
           const logAlertServices = [
             'Log Alerts V2',
             'Log Alerts',
@@ -54,7 +58,7 @@ export default async (context, req) => {
                 );
                 adaptiveCard = await messageCard(req.body);
               }
-              // no custom adaptiveCard in use, default to the generic handler
+              // no custom adaptiveCard in use, default to the log query handler
               if (!adaptiveCard) {
                 const { messageCard } = await import(
                   '../lib/cards/app-insights-log-query-alert.js'
@@ -70,6 +74,8 @@ export default async (context, req) => {
               );
             }
           }
+
+          // platform/monitor alerts
           const platformAlertServices = ['Platform'];
           if (platformAlertServices.includes(monitoringService)) {
             // context.log.info('PLATFORM MONITOR ALERT');
@@ -97,6 +103,7 @@ export default async (context, req) => {
           }
         }
       }
+
       // we have unrecognized data or there's been an error
       if (!adaptiveCard) {
         // use dev webhook if available, fall back to notification webhook
@@ -120,11 +127,10 @@ export default async (context, req) => {
       await axios
         .post(webHookUrl, adaptiveCard)
         .then((response) => {
-          context.res = {
+          return {
             status: 200,
             body: response.data,
           };
-          context.done();
         })
         .catch((error) => {
           // log error for dev and/or debugging purposes
@@ -135,24 +141,22 @@ export default async (context, req) => {
     } else {
       const errorMessage = 'ERROR: No POST data received';
       context.log.error(errorMessage);
-      context.res = {
+      return {
         status: 400,
         body: JSON.stringify({
           status: 400,
           error: errorMessage,
         }),
       };
-      context.done();
     }
   } catch (error) {
     context.log.error(error);
-    context.res = {
+    return {
       status: 500,
       body: JSON.stringify({
         status: 500,
         error,
       }),
     };
-    context.done();
   }
 };

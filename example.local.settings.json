@@ -16,6 +16,7 @@
     "MS_TEAMS_DEV_WEBHOOK_URL": "https://your-domain.webhook.office.com/webhookb2/guid@guid/IncomingWebhook/webhook-id/guid",
     "MS_TEAMS_NOTIFICATION_WEBHOOK_URL": "https://your-domain.webhook.office.com/webhookb2/guid@guid/IncomingWebhook/webhook-id/guid",
     "BLOB_CONTAINER_NAME": "your-dev-blob-container-name",
-    "NODE_ENV": "development"
+    "NODE_ENV": "development",
+    "languageWorkers:node:arguments": "--inspect=5858"
   }
 }
