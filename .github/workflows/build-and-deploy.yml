@@ -47,11 +47,7 @@ jobs:
 
       - name: ⬆️ Update npm and install dependencies
         shell: bash
-        run: npm i -g npm && npm install
-
-      - name: 🗑️ Remove Azure Core Function Tools (disk space issues)
-        shell: bash
-        run: rm -rf node_modules/azure-functions-core-tools
+        run: npm i -g npm && npm ci --omit=dev
 
       - name: 🛫 Deploy function app to Azure
         uses: Azure/functions-action@v1
