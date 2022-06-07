@@ -7,8 +7,6 @@ Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the
 | `dev` | [![DEV Build & Deploy](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/dev-build-and-deploy.yml/badge.svg?branch=dev)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/dev-build-and-deploy.yml) | Pushes to `dev` branch |
 | `main` | [![Build & Deploy](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml) | PR to `main` branch |
 
-## :construction: Work and documentation in progress
-
 ## Azure Function
 
 ### `alert-endpoint`
@@ -101,8 +99,10 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
       - Publish profile for dev function app
     - `MS_TEAMS_WEBHOOK_URL`
       - URL of MS Teams Incoming Webhook to be used for deploy notifications
+    - `MS_TEAMS_WEBHOOK_URL_DEV`
+      - URL of MS Teams Incoming Webhook to be used for dev function app deploy notifications (can be same as `MS_TEAMS_WEBHOOK_URL`)
     - `MS_TEAMS_ALERT_WEBHOOK_URL`
-      - URL of MS Teams Incoming Webhook to be used for deploy failure notifications (can be same as above)
+      - URL of MS Teams Incoming Webhook to be used for deploy failure notifications (can be same as `MS_TEAMS_WEBHOOK_URL`)
     - `ACTIONS_STEP_DEBUG`
       - `false` (set to `true` for additional debug output in GitHub Actions logs)
     - `ACTIONS_RUNNER_DEBUG`
@@ -117,15 +117,15 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
 
 ### Getting Started
 
-1. Clone repo `git clone https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint.git`
-1. Enter directory `cd ct-az-common-alert-endpoint`
+1. Clone repo `git clone https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint.git your-folder-name`
+1. Enter directory `cd your-folder-name`
 1. Install dependencies `npm install`
-1. Set up environment variables for `MS_TEAMS_WEBHOOK_URL` in `.env` and `local.settings.json`:
+1. Set up environment variables in `.env` and `local.settings.json`:
    - **REQUIRED**
      - `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`
        - URL of MS Teams Incoming Webhook to be used for informational notifications
      - `MS_TEAMS_ALERT_WEBHOOK_URL`
-       - URL of MS Teams Incoming Webhook to be used for actionable alerts (can be same as above)
+       - URL of MS Teams Incoming Webhook to be used for actionable alerts (can be same as `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`)
    - **OPTIONAL**
      - `MS_TEAMS_DEV_WEBHOOK_URL`
        - URL of MS Teams Incoming Webhook to be used for unsupported payloads and development - if not provided, function will fall back to `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`

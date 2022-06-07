@@ -24,7 +24,7 @@
   "dependencies": {
     "@azure/storage-blob": "12.10.0",
     "axios": "0.27.2",
-    "dayjs": "1.11.2",
+    "dayjs": "1.11.3",
     "dotenv": "16.0.1",
     "turndown": "7.1.1"
   },
@@ -33,7 +33,7 @@
     "@babel/eslint-parser": "7.18.2",
     "azure-functions-core-tools": "4.0.4544",
     "cross-env": "7.0.3",
-    "eslint": "8.16.0",
+    "eslint": "8.17.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-prettier": "4.0.0",
