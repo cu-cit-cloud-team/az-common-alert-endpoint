@@ -33,7 +33,7 @@
     "@babel/eslint-parser": "7.18.2",
     "azure-functions-core-tools": "4.0.4590",
     "cross-env": "7.0.3",
-    "eslint": "8.18.0",
+    "eslint": "8.19.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-prettier": "4.2.1",
