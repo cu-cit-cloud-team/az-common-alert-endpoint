@@ -29,15 +29,15 @@
     "turndown": "7.1.1"
   },
   "devDependencies": {
-    "@babel/core": "7.18.2",
+    "@babel/core": "7.18.6",
     "@babel/eslint-parser": "7.18.2",
-    "azure-functions-core-tools": "4.0.4544",
+    "azure-functions-core-tools": "4.0.4629",
     "cross-env": "7.0.3",
-    "eslint": "8.17.0",
+    "eslint": "8.19.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "prettier": "2.6.2",
+    "eslint-plugin-prettier": "4.2.1",
+    "prettier": "2.7.1",
     "prettier-eslint": "15.0.1"
   },
   "eslintConfig": {
