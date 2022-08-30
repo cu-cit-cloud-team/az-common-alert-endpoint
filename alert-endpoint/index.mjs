@@ -12,6 +12,7 @@ const {
 
 export default async (context, req) => {
   try {
+    context.log(JSON.stringify(req, null, 2));
     if (req.body) {
       let webHookUrl = MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
       const { schemaId } = req.body;
