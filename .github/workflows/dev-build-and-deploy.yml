@@ -17,7 +17,7 @@ on:
       - "example.local.settings.json"
 
 env:
-  NODE_VERSION: 16.x # set this to the node version to use (supports 10.x, 12.x, 14.x)
+  NODE_VERSION: 18.x # set this to the node version to use (supports 10.x, 12.x, 14.x)
   DISPLAY_NAME: DEV Azure Alert Endpoint
   FUNCTION_APP_NAME: ct-common-alert-endpoint
   FUNCTION_APP_SLOT_NAME: dev

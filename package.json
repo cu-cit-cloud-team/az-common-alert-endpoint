@@ -18,8 +18,8 @@
     "url": ""
   },
   "engines": {
-    "node": "16.x",
-    "npm": ">= 7.x"
+    "node": ">= 16.x",
+    "npm": ">= 8.x"
   },
   "dependencies": {
     "@azure/storage-blob": "12.11.0",
