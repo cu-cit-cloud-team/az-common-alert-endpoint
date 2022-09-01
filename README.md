@@ -112,7 +112,7 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
 
 ### Requirements
 
-- Node.js = v16.x
+- Node.js >= v16.x
 - npm >= v6.x
 
 ### Getting Started
@@ -131,6 +131,10 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
        - URL of MS Teams Incoming Webhook to be used for unsupported payloads and development - if not provided, function will fall back to `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`
      - `BLOB_CONTAINER_NAME`
        - Name of the Azure Blob container to use for storing state files - defaults to `functions-data`
+     - `SUB_DISPLAY_NAME_IN_DESCRIPTION`
+       - Used to indicate whether the SHA rule(s) have the subscription name in their description (value should be `true` or `false`)
+     - `SUB_DISPLAY_NAME_SEPARATOR`
+       - Some identifying text that can be used to extract the subscription name from the description if above value is true (e.g. ` for: ` if the description is "Some Alert Rule for: Subscription Name" and you wanted to extract "Subscription Name" for the SHA notification)
      - `LOCAL_DEV`
        - Set to `true` to override alert and notification webhooks during development
        - Make sure to also set up `MS_TEAMS_DEV_WEBHOOK_URL` with a value or it will fall back to `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`
