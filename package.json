@@ -29,15 +29,16 @@
     "turndown": "7.1.1"
   },
   "devDependencies": {
-    "@babel/core": "7.19.6",
+    "@babel/core": "7.20.5",
     "@babel/eslint-parser": "7.19.1",
-    "azure-functions-core-tools": "4.0.4829",
+    "azure-functions-core-tools": "4.0.4895",
     "cross-env": "7.0.3",
-    "eslint": "8.25.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "8.28.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.7.1",
+    "prettier": "2.8.0",
     "prettier-eslint": "15.0.1"
   },
   "eslintConfig": {
@@ -76,5 +77,10 @@
     "arrowParens": "always",
     "semi": true,
     "tabWidth": 2
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
