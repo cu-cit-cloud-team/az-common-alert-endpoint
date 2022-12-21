@@ -129,6 +129,8 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
    - **OPTIONAL**
      - `MS_TEAMS_DEV_WEBHOOK_URL`
        - URL of MS Teams Incoming Webhook to be used for unsupported payloads and development - if not provided, function will fall back to `MS_TEAMS_NOTIFICATION_WEBHOOK_URL`
+     - `NOTIFICATION_TIMEZONE`
+       - Timezone db name to use for formatting timestamps in notifications - defaults to `America/New_York` ([full list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List))
      - `BLOB_CONTAINER_NAME`
        - Name of the Azure Blob container to use for storing state files - defaults to `functions-data`
      - `SUB_DISPLAY_NAME_IN_DESCRIPTION`
