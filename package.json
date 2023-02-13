@@ -34,7 +34,7 @@
     "azure-functions-core-tools": "4.0.4915",
     "cross-env": "7.0.3",
     "cz-git": "1.4.1",
-    "eslint": "8.33.0",
+    "eslint": "8.34.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-prettier": "4.2.1",
