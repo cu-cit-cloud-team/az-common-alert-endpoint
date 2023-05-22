@@ -31,7 +31,7 @@
   "devDependencies": {
     "@babel/core": "7.21.8",
     "@babel/eslint-parser": "7.21.8",
-    "azure-functions-core-tools": "4.0.5148",
+    "azure-functions-core-tools": "4.0.5174",
     "cross-env": "7.0.3",
     "cz-git": "1.6.1",
     "eslint": "8.40.0",
