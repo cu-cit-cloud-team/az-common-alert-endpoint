@@ -14,11 +14,16 @@
     "name": "Michael Sprague",
     "email": "ms388@cornell.edu"
   },
+  "license": "MIT",
   "repository": {
-    "url": ""
+    "url": "https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/"
   },
+  "bugs": {
+    "url": "https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/issues"
+  },
+  "homepage": "https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint#readme",
   "engines": {
-    "node": ">= 16.x",
+    "node": ">= 18.x",
     "npm": ">= 8.x"
   },
   "dependencies": {
@@ -30,53 +35,10 @@
   },
   "devDependencies": {
     "@babel/core": "7.22.19",
-    "@babel/eslint-parser": "7.22.15",
+    "@biomejs/biome": "1.2.0",
     "azure-functions-core-tools": "4.0.5348",
     "cross-env": "7.0.3",
-    "cz-git": "1.7.1",
-    "eslint": "8.49.0",
-    "eslint-config-prettier": "9.0.0",
-    "eslint-plugin-import": "2.28.1",
-    "eslint-plugin-prettier": "5.0.0",
-    "prettier": "3.0.3",
-    "prettier-eslint": "15.0.1"
-  },
-  "eslintConfig": {
-    "env": {
-      "browser": false,
-      "commonjs": false,
-      "es6": true,
-      "node": true
-    },
-    "extends": [
-      "eslint:recommended",
-      "prettier"
-    ],
-    "plugins": [
-      "import",
-      "prettier"
-    ],
-    "ignorePatterns": [
-      "**/.history/*",
-      "**/node_modules/*"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser",
-      "ecmaVersion": 11,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "impliedStrict": true,
-        "modules": true
-      }
-    },
-    "rules": {}
-  },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "all",
-    "arrowParens": "always",
-    "semi": true,
-    "tabWidth": 2
+    "cz-git": "1.7.1"
   },
   "config": {
     "commitizen": {
