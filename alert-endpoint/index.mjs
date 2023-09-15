@@ -49,8 +49,7 @@ export default async (context, req) => {
               const burstAlertMetrics = ['BitsOutPerSecond', 'BitsInPerSecond'];
               if (
                 burstAlertMetrics.includes(
-                  alertContext.condition &&
-                    alertContext.condition.allOf[0].metricMeasureColumn,
+                  alertContext?.condition?.allOf[0]?.metricMeasureColumn
                 )
               ) {
                 const { messageCard } = await import(
@@ -70,7 +69,7 @@ export default async (context, req) => {
               adaptiveCard = null;
               context.log.info(
                 '⚠️  UNRECOGNIZED LOG QUERY ALERT DATA:\n',
-                error,
+                error
               );
             }
           }
@@ -84,7 +83,7 @@ export default async (context, req) => {
                 const upDownAlertMetrics = ['BgpAvailability'];
                 if (
                   upDownAlertMetrics.includes(
-                    alertContext.condition.allOf[0].metricName,
+                    alertContext.condition.allOf[0].metricName
                   )
                 ) {
                   const { messageCard } = await import(
@@ -96,7 +95,7 @@ export default async (context, req) => {
                 adaptiveCard = null;
                 context.log.info(
                   '⚠️  UNRECOGNIZED PLATFORM ALERT DATA:\n',
-                  error,
+                  error
                 );
               }
             }
