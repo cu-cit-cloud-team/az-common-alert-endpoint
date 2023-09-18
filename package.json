@@ -34,7 +34,6 @@
     "turndown": "7.1.2"
   },
   "devDependencies": {
-    "@babel/core": "7.22.20",
     "@biomejs/biome": "1.2.2",
     "azure-functions-core-tools": "4.0.5348",
     "cross-env": "7.0.3",
