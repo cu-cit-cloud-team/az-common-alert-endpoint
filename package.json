@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.22.19",
-    "@biomejs/biome": "1.2.0",
+    "@biomejs/biome": "1.2.2",
     "azure-functions-core-tools": "4.0.5348",
     "cross-env": "7.0.3",
     "cz-git": "1.7.1"
