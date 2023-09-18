@@ -51,6 +51,15 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: ⚡  Cache node_modules
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: ${{ env.FUNCTION_APP_PATH }}/node_modules
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
+
       - name: ⬆️ Update npm and install dependencies
         shell: bash
         run: npm i -g npm && npm ci --omit=dev
