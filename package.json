@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.2.2",
-    "azure-functions-core-tools": "4.0.5382",
+    "azure-functions-core-tools": "4.0.5390",
     "cross-env": "7.0.3",
     "cz-git": "1.7.1"
   },
