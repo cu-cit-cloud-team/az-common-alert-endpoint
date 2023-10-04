@@ -61,6 +61,7 @@ jobs:
             ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
       - name: ⬆️ Update npm and install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         shell: bash
         run: npm i -g npm && npm ci --omit=dev
 
