@@ -9,7 +9,7 @@
     "AzureWebJobsSecretStorageType": "Blob",
     "FUNCTIONS_EXTENSION_VERSION": "~4",
     "FUNCTIONS_WORKER_RUNTIME": "node",
-    "WEBSITE_NODE_DEFAULT_VERSION": "~16",
+    "WEBSITE_NODE_DEFAULT_VERSION": "~20",
     "WEBSITE_RUN_FROM_PACKAGE": "1",
     "WEBSITE_TIME_ZONE": "Eastern Standard Time",
     "MS_TEAMS_ALERT_WEBHOOK_URL": "",
