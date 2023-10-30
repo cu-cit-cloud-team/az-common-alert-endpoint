@@ -33,6 +33,7 @@ env:
 jobs:
   build-and-deploy-dev:
     runs-on: windows-latest
+    environment: development
     steps:
       - name: 📤 Notify Teams
         uses: mikesprague/teams-incoming-webhook-action@v1
