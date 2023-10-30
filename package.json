@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "main": "alert-endpoint/index.js",
   "description": "Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the Common Alert Schema",
   "scripts": {
     "func": "cross-env NODE_ENV=development LOCAL_DEV=true func start",
@@ -23,19 +24,20 @@
   },
   "homepage": "https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint#readme",
   "engines": {
-    "node": ">= 18.x",
-    "npm": ">= 8.x"
+    "node": ">= 20.x",
+    "npm": ">= 9.x"
   },
   "dependencies": {
+    "@azure/functions": "4.0.1",
     "@azure/storage-blob": "12.16.0",
-    "axios": "1.5.1",
+    "axios": "1.6.0",
     "dayjs": "1.11.10",
     "dotenv": "16.3.1",
     "turndown": "7.1.2"
   },
   "devDependencies": {
     "@biomejs/biome": "1.3.1",
-    "azure-functions-core-tools": "4.0.5413",
+    "azure-functions-core-tools": "4.0.5441",
     "cross-env": "7.0.3",
     "cz-git": "1.7.1"
   },
