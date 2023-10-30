@@ -33,7 +33,7 @@ app.http('alert-endpoint', {
 
             // service health alerts
             if (monitoringService === 'ServiceHealth') {
-              // context.log.info('SERVICE HEALTH ALERT');
+              // context.info('SERVICE HEALTH ALERT');
               webHookUrl = MS_TEAMS_NOTIFICATION_WEBHOOK_URL;
               const { messageCard } = await import(
                 '../lib/cards/service-health-alert.js'
@@ -48,7 +48,7 @@ app.http('alert-endpoint', {
               'Application Insights',
             ];
             if (logAlertServices.includes(monitoringService)) {
-              // context.log.info('LOG QUERY ALERT');
+              // context.info('LOG QUERY ALERT');
               try {
                 // check for expressroute data and use that card if it is
                 const burstAlertMetrics = [
@@ -75,17 +75,14 @@ app.http('alert-endpoint', {
                 }
               } catch (error) {
                 adaptiveCard = null;
-                context.log.info(
-                  '⚠️  UNRECOGNIZED LOG QUERY ALERT DATA:\n',
-                  error
-                );
+                context.info('⚠️  UNRECOGNIZED LOG QUERY ALERT DATA:\n', error);
               }
             }
 
             // platform/monitor alerts
             const platformAlertServices = ['Platform'];
             if (platformAlertServices.includes(monitoringService)) {
-              // context.log.info('PLATFORM MONITOR ALERT');
+              // context.info('PLATFORM MONITOR ALERT');
               if (isExpressRouteAlert(alertTargetIDs)) {
                 try {
                   const upDownAlertMetrics = ['BgpAvailability'];
@@ -101,10 +98,7 @@ app.http('alert-endpoint', {
                   }
                 } catch (error) {
                   adaptiveCard = null;
-                  context.log.info(
-                    '⚠️  UNRECOGNIZED PLATFORM ALERT DATA:\n',
-                    error
-                  );
+                  context.info('⚠️  UNRECOGNIZED PLATFORM ALERT DATA:\n', error);
                 }
               }
             }
