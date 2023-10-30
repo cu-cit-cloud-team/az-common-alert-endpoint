@@ -130,7 +130,7 @@ app.http('alert-endpoint', {
         ) {
           webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
         }
-        console.log(webHookUrl);
+
         await axios
           .post(webHookUrl, adaptiveCard)
           .then((response) => {

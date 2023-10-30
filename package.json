@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "main": "alert-endpoint/index.mjs",
+  "main": "alert-endpoint/index.js",
   "description": "Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the Common Alert Schema",
   "scripts": {
     "func": "cross-env NODE_ENV=development LOCAL_DEV=true func start",
