@@ -23,10 +23,11 @@
   },
   "homepage": "https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint#readme",
   "engines": {
-    "node": ">= 18.x",
-    "npm": ">= 8.x"
+    "node": ">= 20.x",
+    "npm": ">= 9.x"
   },
   "dependencies": {
+    "@azure/functions": "4.0.1",
     "@azure/storage-blob": "12.16.0",
     "axios": "1.6.0",
     "dayjs": "1.11.10",
