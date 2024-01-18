@@ -54,7 +54,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: ⚡  Cache node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: cache
         with:
           path: ${{ env.FUNCTION_APP_PATH }}/node_modules
