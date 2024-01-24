@@ -32,7 +32,7 @@
     "@azure/storage-blob": "12.17.0",
     "axios": "1.6.5",
     "dayjs": "1.11.10",
-    "dotenv": "16.3.2",
+    "dotenv": "16.4.0",
     "turndown": "7.1.2"
   },
   "devDependencies": {
