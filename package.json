@@ -31,7 +31,7 @@
     "@azure/functions": "4.4.0",
     "@azure/storage-blob": "12.17.0",
     "axios": "1.6.8",
-    "dayjs": "1.11.10",
+    "dayjs": "1.11.11",
     "dotenv": "16.4.5",
     "turndown": "7.1.3"
   },
