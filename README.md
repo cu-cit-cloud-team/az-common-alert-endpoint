@@ -1,11 +1,11 @@
-# ct-az-common-alert-endpoint
+# az-common-alert-endpoint
 
 Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the Common Alert Schema
 
 | Branch | Status | CI/CD Build Trigger |
 | --- | --- | --- |
-| `dev` | [![DEV Build & Deploy](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/dev-build-and-deploy.yml/badge.svg?branch=dev)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/dev-build-and-deploy.yml) | Pushes to `dev` branch |
-| `main` | [![Build & Deploy](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/actions/workflows/build-and-deploy.yml) | PR to `main` branch |
+| `dev` | [![DEV Build & Deploy](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/actions/workflows/dev-build-and-deploy.yml/badge.svg?branch=dev)](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/actions/workflows/dev-build-and-deploy.yml) | Pushes to `dev` branch |
+| `main` | [![Build & Deploy](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/actions/workflows/build-and-deploy.yml) | PR to `main` branch |
 
 ## Azure Function
 
@@ -117,7 +117,7 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
 
 ### Getting Started
 
-1. Clone repo `git clone https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint.git your-folder-name`
+1. Clone repo `git clone https://github.com/cu-cit-cloud-team/az-common-alert-endpoint.git your-folder-name`
 1. Enter directory `cd your-folder-name`
 1. Install dependencies `npm install`
 1. Set up environment variables in `.env` and `local.settings.json`:
