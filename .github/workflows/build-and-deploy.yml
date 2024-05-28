@@ -74,7 +74,7 @@ jobs:
           slot-name: ${{ env.FUNCTION_APP_SLOT_NAME }}
           package: ${{ env.FUNCTION_APP_PATH }}
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-          respect-funcignore: true
+          # respect-funcignore: true
 
       - name: ⚠️ Cancelled Notification
         if: ${{ cancelled() }}

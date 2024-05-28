@@ -72,7 +72,7 @@ jobs:
           app-name: ${{ env.FUNCTION_APP_NAME }}
           package: ${{ env.FUNCTION_APP_PATH }}
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE_DEV }}
-          respect-funcignore: true
+          # respect-funcignore: true
 
       - name: ⚠️ Cancelled Notification
         if: ${{ cancelled() }}
