@@ -39,7 +39,7 @@
     "@biomejs/biome": "1.8.3",
     "azure-functions-core-tools": "4.0.5907",
     "cross-env": "7.0.3",
-    "cz-git": "1.9.3"
+    "cz-git": "1.9.4"
   },
   "config": {
     "commitizen": {
