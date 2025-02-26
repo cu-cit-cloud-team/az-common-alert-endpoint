@@ -28,18 +28,18 @@
     "npm": ">= 9.x"
   },
   "dependencies": {
-    "@azure/functions": "4.6.1",
-    "@azure/storage-blob": "12.26.0",
-    "axios": "1.7.9",
+    "@azure/functions": "4.7.0",
+    "@azure/storage-blob": "12.27.0",
+    "axios": "1.9.0",
     "dayjs": "1.11.13",
-    "dotenv": "16.4.7",
+    "dotenv": "16.5.0",
     "turndown": "7.2.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "azure-functions-core-tools": "4.0.6821",
+    "azure-functions-core-tools": "4.0.7030",
     "cross-env": "7.0.3",
-    "cz-git": "1.11.0"
+    "cz-git": "1.11.1"
   },
   "config": {
     "commitizen": {
