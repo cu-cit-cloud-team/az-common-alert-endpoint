@@ -28,7 +28,7 @@
     "npm": ">= 10.x"
   },
   "dependencies": {
-    "@azure/functions": "4.6.1",
+    "@azure/functions": "4.7.0",
     "@azure/storage-blob": "12.26.0",
     "dayjs": "1.11.13",
     "dotenv": "16.4.7",
