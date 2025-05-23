@@ -28,7 +28,7 @@
     "npm": ">= 9.x"
   },
   "dependencies": {
-    "@azure/functions": "4.7.0",
+    "@azure/functions": "4.7.2",
     "@azure/storage-blob": "12.27.0",
     "axios": "1.9.0",
     "dayjs": "1.11.13",
