@@ -36,7 +36,7 @@
     "turndown": "7.2.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.3",
+    "@biomejs/biome": "2.2.4",
     "azure-functions-core-tools": "4.2.2",
     "cross-env": "10.0.0",
     "cz-git": "1.12.0"
