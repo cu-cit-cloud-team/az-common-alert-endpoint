@@ -12,7 +12,7 @@ Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the
 ### `alert-endpoint`
 
 Accepts alert data from Azure Monitors using the Common Alert Schema - formats alert data
-as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
+as an [AdaptiveCard](https://adaptivecards.microsoft.com/) and then sends it to an
 [MS Teams Incoming Webhook](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
 
 - Type: HTTP Trigger
@@ -112,8 +112,8 @@ as an [AdaptiveCard](https://adaptivecards.io/explorer/) and then sends it to an
 
 ### Requirements
 
-- Node.js >= v20.x
-- npm >= v9.x
+- Node.js >= v22.x
+- npm >= v10.x
 
 ### Getting Started
 
