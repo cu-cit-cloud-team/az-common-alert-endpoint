@@ -17,12 +17,12 @@
   },
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/"
+    "url": "https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/"
   },
   "bugs": {
-    "url": "https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/issues"
+    "url": "https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/issues"
   },
-  "homepage": "https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint#readme",
+  "homepage": "https://github.com/cu-cit-cloud-team/az-common-alert-endpoint#readme",
   "engines": {
     "node": ">= 22.x",
     "npm": ">= 10.x"
