@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint#readme",
   "engines": {
-    "node": ">= 20.x",
-    "npm": ">= 9.x"
+    "node": ">= 22.x",
+    "npm": ">= 10.x"
   },
   "dependencies": {
     "@azure/functions": "4.8.0",
@@ -47,7 +47,7 @@
     }
   },
   "volta": {
-    "node": "22.16.0",
-    "npm": "10.9.2"
+    "node": "22.19.0",
+    "npm": "11.6.0"
   }
 }
