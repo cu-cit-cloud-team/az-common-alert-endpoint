@@ -30,7 +30,7 @@
   "dependencies": {
     "@azure/functions": "4.11.0",
     "@azure/storage-blob": "12.30.0",
-    "axios": "1.13.3",
+    "axios": "1.13.4",
     "dayjs": "1.11.19",
     "dotenv": "17.2.3",
     "turndown": "7.2.2"
