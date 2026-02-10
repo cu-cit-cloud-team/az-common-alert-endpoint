@@ -24,7 +24,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  NODE_VERSION: ${{ vars}}
+  NODE_VERSION: ${{ vars.NODE_VERSION}}
   DISPLAY_NAME: DEV Azure Alert Endpoint
   FUNCTION_APP_NAME: ct-common-alert-endpoint
   FUNCTION_APP_SLOT_NAME: dev
