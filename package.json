@@ -32,7 +32,7 @@
   "packageManager": "npm@11.9.0",
   "dependencies": {
     "@azure/functions": "4.11.2",
-    "@azure/storage-blob": "12.30.0",
+    "@azure/storage-blob": "12.31.0",
     "axios": "1.13.5",
     "dayjs": "1.11.19",
     "dotenv": "17.2.4",
