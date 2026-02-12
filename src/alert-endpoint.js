@@ -1,5 +1,4 @@
 import { app } from '@azure/functions';
-import axios from 'axios';
 
 import { isExpressRouteAlert } from '../lib/express-route.js';
 
@@ -125,20 +124,30 @@ app.http('alert-endpoint', {
           webHookUrl = MS_TEAMS_DEV_WEBHOOK_URL;
         }
 
-        await axios
-          .post(webHookUrl, adaptiveCard)
-          .then((response) => {
-            return {
-              status: 200,
-              body: response.data,
-            };
-          })
-          .catch((error) => {
-            // log error for dev and/or debugging purposes
-            context.error('⚠️  AXIOS ERROR:\n', error);
-            // bubble error up so it throws 500 and outputs content
-            throw error;
-          });
+        const response = await fetch(webHookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(adaptiveCard),
+        });
+
+        if (!response.ok) {
+          const errorBody = await response.text().catch(() => '');
+          const error = new Error(
+            `Fetch error: ${response.status} ${response.statusText}`
+          );
+          error.status = response.status;
+          error.body = errorBody;
+          throw error;
+        }
+
+        const responseData = await response
+          .json()
+          .catch(() => response.text());
+
+        return {
+          status: 200,
+          body: responseData,
+        };
       } else {
         const errorMessage = 'ERROR: No POST data received';
         context.error(errorMessage);
