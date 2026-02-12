@@ -29,7 +29,7 @@
     "node": ">= 24.x",
     "npm": ">= 11.x"
   },
-  "packageManager": "npm@11.9.0",
+  "packageManager": "npm@11.10.0",
   "dependencies": {
     "@azure/functions": "4.11.2",
     "@azure/storage-blob": "12.31.0",
@@ -60,6 +60,6 @@
   },
   "volta": {
     "node": "24.13.1",
-    "npm": "11.9.0"
+    "npm": "11.10.0"
   }
 }
