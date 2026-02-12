@@ -108,12 +108,17 @@ as an [AdaptiveCard](https://adaptivecards.microsoft.com/) and then sends it to 
     - `ACTIONS_RUNNER_DEBUG`
       - `false` (set to `true` for additional debug output in GitHub Actions logs)
 
+- **Actions variables:**
+  - **REQUIRED**
+    - `NODE_VERSION`
+      - Version of Node.js to use in GitHub Actions (e.g. `24.x`)
+
 ## Local Development
 
 ### Requirements
 
-- Node.js >= v22.x
-- npm >= v10.x
+- Node.js >= v24.x
+- npm >= v11.x
 
 ### Getting Started
 
