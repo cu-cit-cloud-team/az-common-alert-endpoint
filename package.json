@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.15",
-    "azure-functions-core-tools": "4.6.0",
+    "azure-functions-core-tools": "4.7.0",
     "conventional-changelog": "7.1.1",
     "conventional-changelog-cli": "5.0.0",
     "conventional-changelog-conventionalcommits": "9.1.0",
