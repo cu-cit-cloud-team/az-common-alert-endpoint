@@ -140,25 +140,25 @@ app.http('alert-endpoint', {
           throw error;
         }
 
-        const responseData = await response
-          .json()
-          .catch(() => response.text());
+        const responseClone = response.clone();
+        const responseData = await responseClone.text();
 
         return {
           status: 200,
           body: responseData,
         };
-      } else {
-        const errorMessage = 'ERROR: No POST data received';
-        context.error(errorMessage);
-        return {
-          status: 400,
-          body: JSON.stringify({
-            status: 400,
-            error: errorMessage,
-          }),
-        };
       }
+
+      // shouldn't ever get this far
+      const errorMessage = 'ERROR: No POST data received';
+      context.error(errorMessage);
+      return {
+        status: 400,
+        body: JSON.stringify({
+          status: 400,
+          error: errorMessage,
+        }),
+      };
     } catch (error) {
       context.error(error);
       return {
