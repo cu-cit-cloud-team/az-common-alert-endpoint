@@ -6,7 +6,7 @@
   "main": "src/alert-endpoint.js",
   "description": "Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the Common Alert Schema",
   "scripts": {
-    "changelog": "npx conventional-changelog -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "changelog": "npx conventional-changelog -p conventionalcommits -n changelog.config.js -i CHANGELOG.md -s && git add CHANGELOG.md",
     "func": "cross-env NODE_ENV=development LOCAL_DEV=true func start",
     "func:verbose": "cross-env NODE_ENV=development LOCAL_DEV=true func start --verbose",
     "scratch": "cross-env NODE_ENV=development LOCAL_DEV=true node --trace-warnings ./scratch.js",
@@ -53,9 +53,6 @@
     "commitizen": {
       "path": "./node_modules/cz-git"
     }
-  },
-  "release": {
-    "preset": "conventionalcommits"
   },
   "volta": {
     "node": "24.13.1",
