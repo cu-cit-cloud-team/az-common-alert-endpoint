@@ -7,7 +7,7 @@
   "description": "Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the Common Alert Schema",
   "scripts": {
     "changelog": "npx conventional-changelog -p conventionalcommits -n changelog.config.js -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "changelog:preview": "npx conventional-changelog -p conventionalcommits -n changelog.config.js -u --stdout -r 1 -i /dev/null",
+    "changelog:preview": "npx conventional-changelog -p conventionalcommits -n changelog.config.js -u --stdout -i /dev/null",
     "func": "cross-env NODE_ENV=development LOCAL_DEV=true func start",
     "func:verbose": "cross-env NODE_ENV=development LOCAL_DEV=true func start --verbose",
     "scratch": "cross-env NODE_ENV=development LOCAL_DEV=true node --trace-warnings ./scratch.js",
@@ -39,7 +39,7 @@
     "turndown": "7.2.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.0",
+    "@biomejs/biome": "2.4.1",
     "azure-functions-core-tools": "4.7.0",
     "conventional-changelog": "7.1.1",
     "conventional-changelog-cli": "5.0.0",
