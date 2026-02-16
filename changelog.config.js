@@ -10,7 +10,7 @@ const types = [
   { type: 'perf', section: '⚡ Performance Improvements', hidden: false },
   { type: 'revert', section: '⏪ Reverts', hidden: false },
   { type: 'docs', section: '📚 Documentation', hidden: false },
-  { type: 'chore', section: '🔧 Miscellaneous Chores', hidden: false },
+  { type: 'chore', section: '🔧 Chores', hidden: false },
   { type: 'refactor', section: '🛠️ Code Refactoring', hidden: false },
   { type: 'build', section: '🏗️ Build System', hidden: false },
   { type: 'ci', section: '🔄 Continuous Integration', hidden: false },

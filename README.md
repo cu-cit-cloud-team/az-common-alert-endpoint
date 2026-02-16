@@ -113,6 +113,14 @@ as an [AdaptiveCard](https://adaptivecards.microsoft.com/) and then sends it to 
     - `NODE_VERSION`
       - Version of Node.js to use in GitHub Actions (e.g. `24.x`)
 
+## Releases and Changelog
+
+- This repo uses Conventional Commits and generates release notes with `conventional-changelog`.
+- Run `npm run changelog` to update `CHANGELOG.md` during release/version workflows.
+- Run `npm run changelog:preview` to preview grouped, headered unreleased notes in stdout.
+- Run `npm run changelog:rebuild` to fully regenerate `CHANGELOG.md` using current grouping rules.
+- Changelog heading visibility and section titles are configured in `changelog.config.js`.
+
 ## Local Development
 
 ### Requirements
