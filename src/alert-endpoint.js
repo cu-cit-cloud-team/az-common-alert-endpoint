@@ -45,6 +45,7 @@ app.http('alert-endpoint', {
               'Log Alerts V2',
               'Log Alerts',
               'Application Insights',
+              'Platform',
             ];
             if (logAlertServices.includes(monitoringService)) {
               // context.info('LOG QUERY ALERT');
@@ -56,7 +57,8 @@ app.http('alert-endpoint', {
                 ];
                 if (
                   burstAlertMetrics.includes(
-                    alertContext?.condition?.allOf[0]?.metricMeasureColumn
+                    alertContext?.condition?.allOf[0]?.metricName ||
+                      alertContext?.condition?.allOf[0]?.metricMeasureColumn
                   )
                 ) {
                   const { messageCard } = await import(
