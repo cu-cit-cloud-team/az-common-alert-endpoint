@@ -1,4 +1,33 @@
-# Changelog
+## [1.2.0](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/compare/v1.1.0...v1.2.0) (2026-02-17)
+
+### 🛠️ Code Refactoring
+
+* **alert-endpoint:** improve fetch logic ([3958bcb](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/3958bcbb8f56ebbadd61828c6179769289250f9c))
+* **alert-endpoint:** update express route burst logic ([6cb4bd0](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/6cb4bd02b3b0dcfb762c29f9f815843e2f528e9f))
+* **lib/cards/*:** add work in progress converting FactSet/Fact to ColumnSet/Colum/TextBlock ([129d56d](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/129d56d0fe1a331927069fa038c650f6397e4a33))
+* **lib/cards/*:** use Tables (vs ColumnSet/Column or FactSet/Fact) ([988a2b3](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/988a2b3c963d620839220d537f44d9fb96b14372))
+* **lib/cards/express-route-log-query-burst-alert:** add metricName ([92ce36a](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/92ce36a0261c28d8a8de7b39db487abc4ec79636))
+* **lib/cards/service-health-alert:** add helper methods; fix display issues ([d5ea102](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/d5ea1020f087f800efd019eba32ae75ae59b5e04))
+* **lib/cards/service-health-alert:** add WIP to fix a couple display issues ([5b7669e](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/5b7669e155fb69157e950150ab668fd9e0963c73))
+* **WIP:** add work in progress ([00d8eb2](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/00d8eb2b543f5fc1f39527b84c5de7900c265c52))
+
+### 🔧 Chores
+
+* **deps-dev:** bump @biomejs/biome from 2.4.1 to 2.4.2 (#535) ([631b2a2](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/631b2a2f7bfcaaf2e74179486ffdb9b0bfcc20ce)), closes [#535](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/issues/535)
+* **deps-dev:** bump @biomejs/biome to 2.4.1 ([aa9ec4d](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/aa9ec4d54045164b95c9b256b9b3b19a2668a1dd))
+* **deps-dev:** bump @biomejs/biomne to 2.4.0 ([c2ff86c](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/c2ff86c1b8abd77d7a4f5fd3e3afef1b505323c1))
+* **deps-dev:** bump azure-functions-core-tools from 4.6.0 to 4.7.0 (#533) ([8dd4614](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/8dd461421e2b477ef7168842b3c258159ef4197b)), closes [#533](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/issues/533)
+* **deps:** bump dotenv from 17.2.4 to 17.3.1 (#534) ([36c7191](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/36c7191376b9f403a1b3d6827311be400d7382c7)), closes [#534](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/issues/534)
+* **deps:** bump mikesprague/teams-incoming-webhook-action from 1 to 2 (#532) ([09363bf](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/09363bfc5e35c73a0399b950cffad5fbb42d2781)), closes [#532](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/issues/532)
+
+### 📚 Documentation
+
+* **CHANGELOG:** update last release with new changelog format ([2923623](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/2923623f460e715673698583aea94b369394ccc2))
+
+### 🏗️ Build System
+
+* **changelog:** add config for conventional-changelog ([5790059](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/57900594ab9194cb10146ed90a6a6f2b108f2041))
+* **npm:** pass config to changelog script ([a226fe8](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/a226fe8690a146ae583390cc29433305fd959ed0))
 
 ## 1.1.0 (2026-02-12)
 
