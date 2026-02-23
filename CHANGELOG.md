@@ -1,3 +1,19 @@
+## [1.2.1](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/compare/v1.2.0...v1.2.1) (2026-02-23)
+
+### 🔧 Chores
+
+* **deps-dev:** bump @biomejs/biome from 2.4.2 to 2.4.3 (#536) ([bca623f](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/bca623f8822438dda685548e9424901b48b80adc)), closes [#536](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/issues/536)
+* **deps-dev:** bump @biomejs/biome from 2.4.3 to 2.4.4 (#537) ([6ea93fd](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/6ea93fd0f428726c87650d023eff69caadb86987)), closes [#537](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/issues/537)
+* **overrides:** add minimatch (address security alert) ([b7aaf0b](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/b7aaf0bb517cd2f1ba52aefb295d0817c35b678b))
+
+### 🏗️ Build System
+
+* **npm:** bump `packageManager` ([a1ad19a](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/a1ad19a0a79bc997c4741f3976ff46137771dd7b))
+
+### style
+
+* **lib/cards/service-health-alert:** don't wrap labels ([142fedf](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/142fedf847613b9ba3fe21e6a9c4a9ec8b0d144e))
+
 ## [1.2.0](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/compare/v1.1.0...v1.2.0) (2026-02-17)
 
 ### 🛠️ Code Refactoring
