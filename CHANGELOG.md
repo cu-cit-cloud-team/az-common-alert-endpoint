@@ -1,3 +1,34 @@
+## [1.3.0](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/compare/v1.2.1...v1.3.0) (2026-02-26)
+
+### 🛠️ Code Refactoring
+
+* **lib/cards/express-route-alert:** fix display issues ([eddd66c](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/eddd66cb909c6053e6110cf2dc74f1a1ffdb3c77))
+* **lib/cards/express-route-metric-burst-alert:** fix display issues ([1baca55](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/1baca55a962834e7dcdf853110a4daf7d1111c73))
+* **lib/cards:** display fixes ([95bfbc4](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/95bfbc4b3f80c0a7eaac123414c94ea4b138b092))
+* **lib/express-route:** additional cleanup ([1ac63f1](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/1ac63f1a3ea2c7f80fd8cbd48b2d526e5a2d743f))
+* **lib/express-route:** clean up parameter reassignment (code quality scan suggestion) ([a93b3af](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/a93b3aff0367535be4a4d5c2d2dc0bda0b334caa))
+* **lib/express-route:** fix code quality finding (comparison between inconvertible types) ([9867299](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/9867299339bcb88645ec15355fd96fa0bb390a93))
+* **lib/express-route:** fix type; output error (code quality scan suggestions) ([5eed7fc](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/5eed7fc57c16a3c9a4535e30ef1acdec3bc19c88))
+* **lib/helpers:** clean up timezone logic; reduce duplication in localizeDateTime ([1c54a76](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/1c54a76115c3a037311975b7939c3c4fb4e78586))
+* **lib/helpers:** fix code quality finding (comparison between inconvertible types) ([afd1ad7](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/afd1ad77dbc5b764548688dae7102516365776cd))
+
+### 🐛 Fixes
+
+* **lib/cards/express-route-alert:** json parse error ([f6cee56](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/f6cee5656ad40ff259afa52dd6abb6ace9d08c65))
+
+### 🔧 Chores
+
+* **host:** use non-preview version of `Microsoft.Azure.Functions.ExtensionBundle` ([a1e3af8](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/a1e3af8f197535701accb352eb35cc3716045d2f))
+
+### 🏗️ Build System
+
+* **npm:** bump `packageManager` ([b07f0f6](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/b07f0f64cdf379be373db8723cd2e8a31f21d63c))
+* **npm:** bump `packageManager` ([a2c0c66](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/a2c0c66e6981e05e16910e70e85c5a7b54496c75))
+
+### style
+
+* **lib/helpers:** rename for consistency ([3cb804a](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/3cb804af0b3146ae715810b4449a2416e61efd73))
+* **lib/helpers:** rename var (code quality scan suggestion) ([297a7f8](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/commit/297a7f8c00b90a6496a200fdbc8974ed563df412))
 ## [1.2.1](https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/compare/v1.2.0...v1.2.1) (2026-02-23)
 
 ### 🔧 Chores
