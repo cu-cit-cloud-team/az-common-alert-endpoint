@@ -30,7 +30,7 @@
     "node": ">= 24.x",
     "npm": ">= 11.x"
   },
-  "packageManager": "npm@11.10.1",
+  "packageManager": "npm@11.11.0",
   "dependencies": {
     "@azure/functions": "4.11.2",
     "@azure/storage-blob": "12.31.0",
@@ -49,7 +49,7 @@
   },
   "overrides": {
     "@conventional-changelog/git-client": "^2.5.1",
-    "minimatch": "10.2.2"
+    "minimatch": "10.2.4"
   },
   "config": {
     "commitizen": {
@@ -57,7 +57,7 @@
     }
   },
   "volta": {
-    "node": "24.14.0",
-    "npm": "11.11.0"
+    "node": "24.13.1",
+    "npm": "11.10.1"
   }
 }
