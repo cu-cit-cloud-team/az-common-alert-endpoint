@@ -30,7 +30,7 @@
     "node": ">= 24.x",
     "npm": ">= 11.x"
   },
-  "packageManager": "npm@11.11.0",
+  "packageManager": "npm@11.11.1",
   "dependencies": {
     "@azure/functions": "4.11.2",
     "@azure/storage-blob": "12.31.0",
@@ -39,17 +39,17 @@
     "turndown": "7.2.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.6",
+    "@biomejs/biome": "2.4.7",
     "azure-functions-core-tools": "4.8.0",
     "conventional-changelog": "7.2.0",
-    "conventional-changelog-cli": "5.0.0",
     "conventional-changelog-conventionalcommits": "9.3.0",
     "cross-env": "10.1.0",
     "cz-git": "1.12.0"
   },
   "overrides": {
-    "@conventional-changelog/git-client": "^2.5.1",
-    "minimatch": "10.2.4"
+    "@conventional-changelog/git-client": "^2.6.0",
+    "minimatch": "^10.2.4",
+    "yauzl": "^3.2.1"
   },
   "config": {
     "commitizen": {
@@ -57,7 +57,7 @@
     }
   },
   "volta": {
-    "node": "24.13.1",
-    "npm": "11.10.1"
+    "node": "24.14.0",
+    "npm": "11.11.1"
   }
 }
