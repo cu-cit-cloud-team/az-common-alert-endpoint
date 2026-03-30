@@ -37,7 +37,7 @@ jobs:
     environment: production
     steps:
       - name: 📤 Notify Teams
-        uses: mikesprague/teams-incoming-webhook-action@v2
+        uses: mikesprague/teams-incoming-webhook-action@4a5527e5d3346f33476e68fe61c4d54006d75b5f # v2.0.2
         with:
           github-token: ${{ github.token }}
           webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
@@ -46,15 +46,15 @@ jobs:
           color: info
 
       - name: 👷 Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: 🏗️ Setup Node.js ${{ env.NODE_VERSION }} environment
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: ⚡  Cache node_modules
-        uses: actions/cache@v5
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
         id: cache
         with:
           path: ${{ env.FUNCTION_APP_PATH }}/node_modules
@@ -68,7 +68,7 @@ jobs:
         run: npm i -g npm && npm ci --omit=dev
 
       - name: 🛫 Deploy function app to Azure
-        uses: Azure/functions-action@v1
+        uses: Azure/functions-action@ac2abfb0e49d12ed5d273a3cb39f01bdd1654c43 # v1.5.5
         with:
           app-name: ${{ env.FUNCTION_APP_NAME }}
           slot-name: ${{ env.FUNCTION_APP_SLOT_NAME }}
@@ -78,7 +78,7 @@ jobs:
 
       - name: ⚠️ Cancelled Notification
         if: ${{ cancelled() }}
-        uses: mikesprague/teams-incoming-webhook-action@v2
+        uses: mikesprague/teams-incoming-webhook-action@4a5527e5d3346f33476e68fe61c4d54006d75b5f # v2.0.2
         with:
           github-token: ${{ github.token }}
           webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
@@ -88,7 +88,7 @@ jobs:
 
       - name: ⛔ Failure Notification
         if: ${{ failure() }}
-        uses: mikesprague/teams-incoming-webhook-action@v2
+        uses: mikesprague/teams-incoming-webhook-action@4a5527e5d3346f33476e68fe61c4d54006d75b5f # v2.0.2
         with:
           github-token: ${{ github.token }}
           webhook-url: ${{ secrets.MS_TEAMS_ALERT_WEBHOOK_URL }}
@@ -98,7 +98,7 @@ jobs:
 
       - name: 🎉 Success Notification
         if: ${{ success() }}
-        uses: mikesprague/teams-incoming-webhook-action@v2
+        uses: mikesprague/teams-incoming-webhook-action@4a5527e5d3346f33476e68fe61c4d54006d75b5f # v2.0.2
         with:
           github-token: ${{ github.token }}
           webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
