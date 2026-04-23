@@ -48,7 +48,7 @@
   },
   "overrides": {
     "@conventional-changelog/git-client": "^2.6.0",
-    "fast-xml-parser": "^5.5.9",
+    "fast-xml-parser": "^5.7.1",
     "handlebars": "^4.7.9",
     "minimatch": "^10.2.5",
     "yauzl": "^3.2.1"
