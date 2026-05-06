@@ -2,35 +2,33 @@
   "name": "ct-az-common-alert-endpoint",
   "version": "1.3.0",
   "private": true,
-  "type": "module",
-  "main": "src/alert-endpoint.js",
   "description": "Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the Common Alert Schema",
-  "scripts": {
-    "changelog": "npx conventional-changelog -p conventionalcommits -n changelog.config.js -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "changelog:preview": "npx conventional-changelog -p conventionalcommits -n changelog.config.js -u --stdout -i /dev/null",
-    "func": "cross-env NODE_ENV=development LOCAL_DEV=true func start",
-    "func:verbose": "cross-env NODE_ENV=development LOCAL_DEV=true func start --verbose",
-    "scratch": "cross-env NODE_ENV=development LOCAL_DEV=true node --trace-warnings ./scratch.js",
-    "test": "echo \"No tests yet...\"",
-    "version": "npm run changelog"
+  "homepage": "https://github.com/cu-cit-cloud-team/az-common-alert-endpoint#readme",
+  "bugs": {
+    "url": "https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/issues"
   },
+  "license": "MIT",
   "author": {
     "name": "Michael Sprague",
     "email": "ms388@cornell.edu"
   },
-  "license": "MIT",
   "repository": {
     "url": "https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/"
   },
-  "bugs": {
-    "url": "https://github.com/cu-cit-cloud-team/az-common-alert-endpoint/issues"
+  "type": "module",
+  "main": "src/alert-endpoint.js",
+  "scripts": {
+    "changelog": "npx conventional-changelog -p conventionalcommits -n changelog.config.js -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "changelog:preview": "npx conventional-changelog -p conventionalcommits -n changelog.config.js -u --stdout -i /dev/null",
+    "format": "npx oxfmt src",
+    "format:check": "npx oxfmt --check src",
+    "func": "cross-env NODE_ENV=development LOCAL_DEV=true func start",
+    "func:verbose": "cross-env NODE_ENV=development LOCAL_DEV=true func start --verbose",
+    "lint": "npx oxlint src",
+    "scratch": "cross-env NODE_ENV=development LOCAL_DEV=true node --trace-warnings ./scratch.js",
+    "test": "echo \"No tests yet...\"",
+    "version": "npm run changelog"
   },
-  "homepage": "https://github.com/cu-cit-cloud-team/az-common-alert-endpoint#readme",
-  "engines": {
-    "node": ">= 24.x",
-    "npm": ">= 11.x"
-  },
-  "packageManager": "npm@11.12.1",
   "dependencies": {
     "@azure/functions": "4.14.0",
     "@azure/storage-blob": "12.31.0",
@@ -39,27 +37,33 @@
     "turndown": "7.2.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.14",
     "azure-functions-core-tools": "4.10.0",
     "conventional-changelog": "7.2.0",
     "conventional-changelog-conventionalcommits": "9.3.1",
     "cross-env": "10.1.0",
-    "cz-git": "1.13.0"
+    "cz-git": "1.13.0",
+    "oxfmt": "0.48.0",
+    "oxlint": "1.63.0"
   },
   "overrides": {
-    "@conventional-changelog/git-client": "^2.6.0",
-    "fast-xml-parser": "^5.5.9",
+    "@conventional-changelog/git-client": "^2.7.0",
+    "fast-xml-parser": "^5.7.3",
     "handlebars": "^4.7.9",
     "minimatch": "^10.2.5",
-    "yauzl": "^3.2.1"
+    "yauzl": "^3.3.0"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-git"
     }
   },
+  "engines": {
+    "node": ">= 24.x",
+    "npm": ">= 11.x"
+  },
   "volta": {
-    "node": "24.14.1",
-    "npm": "11.12.1"
-  }
+    "node": "24.15.0",
+    "npm": "11.13.0"
+  },
+  "packageManager": "npm@11.13.0"
 }
