@@ -43,7 +43,7 @@
     "cross-env": "10.1.0",
     "cz-git": "1.13.1",
     "oxfmt": "0.48.0",
-    "oxlint": "1.63.0"
+    "oxlint": "1.64.0"
   },
   "overrides": {
     "@conventional-changelog/git-client": "^2.7.0",
