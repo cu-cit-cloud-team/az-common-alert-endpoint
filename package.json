@@ -42,7 +42,7 @@
     "conventional-changelog-conventionalcommits": "9.3.1",
     "cross-env": "10.1.0",
     "cz-git": "1.13.1",
-    "oxfmt": "0.50.0",
+    "oxfmt": "0.51.0",
     "oxlint": "1.65.0"
   },
   "overrides": {
