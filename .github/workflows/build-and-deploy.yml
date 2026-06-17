@@ -37,7 +37,7 @@ jobs:
     environment: production
     steps:
       - name: 📤 Notify Teams
-        uses: mikesprague/teams-incoming-webhook-action@a524ce1761a21193c9cd79daae855d140a912df5 # v2.1.0
+        uses: mikesprague/teams-incoming-webhook-action@27a4355df6408060add9949de3700fc3b4ecdb21 # v2.1.1
         with:
           github-token: ${{ github.token }}
           webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
@@ -80,7 +80,7 @@ jobs:
 
       - name: ⚠️ Cancelled Notification
         if: ${{ cancelled() }}
-        uses: mikesprague/teams-incoming-webhook-action@a524ce1761a21193c9cd79daae855d140a912df5 # v2.1.0
+        uses: mikesprague/teams-incoming-webhook-action@27a4355df6408060add9949de3700fc3b4ecdb21 # v2.1.1
         with:
           github-token: ${{ github.token }}
           webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
@@ -90,7 +90,7 @@ jobs:
 
       - name: ⛔ Failure Notification
         if: ${{ failure() }}
-        uses: mikesprague/teams-incoming-webhook-action@a524ce1761a21193c9cd79daae855d140a912df5 # v2.1.0
+        uses: mikesprague/teams-incoming-webhook-action@27a4355df6408060add9949de3700fc3b4ecdb21 # v2.1.1
         with:
           github-token: ${{ github.token }}
           webhook-url: ${{ secrets.MS_TEAMS_ALERT_WEBHOOK_URL }}
@@ -100,7 +100,7 @@ jobs:
 
       - name: 🎉 Success Notification
         if: ${{ success() }}
-        uses: mikesprague/teams-incoming-webhook-action@a524ce1761a21193c9cd79daae855d140a912df5 # v2.1.0
+        uses: mikesprague/teams-incoming-webhook-action@27a4355df6408060add9949de3700fc3b4ecdb21 # v2.1.1
         with:
           github-token: ${{ github.token }}
           webhook-url: ${{ secrets.MS_TEAMS_WEBHOOK_URL_DEV }}
