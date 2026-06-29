@@ -1,6 +1,6 @@
 {
   "name": "ct-az-common-alert-endpoint",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": true,
   "description": "Azure Function for an HTTP endpoint to receive Azure Monitor alerts that use the Common Alert Schema",
   "homepage": "https://github.com/cu-cit-cloud-team/az-common-alert-endpoint#readme",
