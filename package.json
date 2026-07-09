@@ -30,7 +30,7 @@
     "version": "npm run changelog"
   },
   "dependencies": {
-    "@azure/functions": "4.16.1",
+    "@azure/functions": "4.16.2",
     "@azure/storage-blob": "12.33.0",
     "dayjs": "1.11.21",
     "dotenv": "17.4.2",
