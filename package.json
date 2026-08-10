@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "azure-functions-core-tools": "4.12.1",
-    "conventional-changelog": "8.1.0",
+    "conventional-changelog": "8.1.1",
     "conventional-changelog-conventionalcommits": "10.2.1",
     "cross-env": "10.1.0",
     "cz-git": "1.13.1",
