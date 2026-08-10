@@ -70,7 +70,7 @@ jobs:
         run: npm i -g npm && npm ci --omit=dev
 
       - name: 🛫 Deploy function app to Azure
-        uses: Azure/functions-action@bc63708cc6539760eea18d8a7de4ce8ef5fdf593 # v1.5.6
+        uses: Azure/functions-action@c5060b3b8bb1ebbcb531abd00c822ecbaa8ea656 # v1.5.7
         with:
           app-name: ${{ env.FUNCTION_APP_NAME }}
           slot-name: ${{ env.FUNCTION_APP_SLOT_NAME }}
