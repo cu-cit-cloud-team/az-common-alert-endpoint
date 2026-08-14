@@ -41,7 +41,7 @@
     "conventional-changelog": "8.1.2",
     "conventional-changelog-conventionalcommits": "10.3.0",
     "cross-env": "10.1.0",
-    "cz-git": "1.13.1",
+    "cz-git": "1.13.2",
     "oxfmt": "0.63.0",
     "oxlint": "1.78.0"
   },
