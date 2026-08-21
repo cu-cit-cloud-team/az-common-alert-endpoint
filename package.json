@@ -32,7 +32,7 @@
   "dependencies": {
     "@azure/functions": "4.16.2",
     "@azure/storage-blob": "12.33.0",
-    "dayjs": "1.11.22",
+    "dayjs": "1.11.23",
     "dotenv": "17.4.2",
     "turndown": "7.2.4"
   },
