@@ -43,7 +43,7 @@
     "cross-env": "10.1.0",
     "cz-git": "1.14.0",
     "oxfmt": "0.72.0",
-    "oxlint": "1.86.0"
+    "oxlint": "1.87.0"
   },
   "config": {
     "commitizen": {
