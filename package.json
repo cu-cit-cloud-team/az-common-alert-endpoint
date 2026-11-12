@@ -43,7 +43,7 @@
     "cross-env": "10.1.0",
     "cz-git": "1.14.0",
     "oxfmt": "0.78.0",
-    "oxlint": "1.92.0"
+    "oxlint": "1.93.0"
   },
   "overrides": {
     "brace-expansion": "^5.0.12",
